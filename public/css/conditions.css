@@ -1,0 +1,162 @@
+.conditions {
+    background: #f4fbfc;
+}
+
+.conditions-container {
+    width: min(1100px, 92%);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 420px 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+.conditions-image {
+    position: relative;
+}
+
+.conditions-image img {
+    width: 100%;
+    height: 430px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+}
+
+.image-caption {
+    position: absolute;
+
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+
+    padding: 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 14px;
+
+    background: rgba(0, 50, 60, .80);
+
+    color: white;
+}
+
+.image-caption strong {
+    font-size: 14px;
+}
+
+.image-caption span {
+    margin-top: 5px;
+
+    font-size: 10px;
+    opacity: .8;
+}
+
+.conditions-content h2 {
+    color: #064d59;
+
+    font-size: 38px;
+    line-height: 1.15;
+}
+
+.conditions-content > p {
+    max-width: 480px;
+
+    margin: 15px 0 25px;
+
+    color: #71868a;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.alphabet {
+    max-width: 470px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.alphabet button {
+    width: 31px;
+    height: 31px;
+
+    border: 1px solid #cde3e6;
+    border-radius: 50%;
+
+    background: white;
+
+    color: #37636a;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.alphabet button:hover {
+    background: #0a9aaa;
+    border-color: #0a9aaa;
+    color: white;
+}
+
+.condition-search {
+    max-width: 480px;
+
+    margin-top: 25px;
+
+    display: flex;
+
+    border: 1px solid #dcebed;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    background: white;
+}
+
+.condition-search input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 13px;
+
+    border: 0;
+    outline: 0;
+
+    font-size: 12px;
+}
+
+.condition-search button {
+    padding: 0 18px;
+
+    border: 0;
+
+    background: #079aaa;
+    color: white;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.text-link {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: #079aaa;
+
+    font-size: 12px;
+    font-weight: 700;
+}

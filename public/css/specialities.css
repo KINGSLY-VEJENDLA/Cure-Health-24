@@ -1,0 +1,152 @@
+.specialties {
+    background: #ffffff;
+}
+
+.section {
+    padding: 90px 0;
+}
+
+.section-container {
+    width: min(1100px, 92%);
+    margin: auto;
+}
+
+.section-heading {
+    max-width: 650px;
+    margin-bottom: 40px;
+}
+
+.section-heading.centered {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.section-label {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: #0a9aaa;
+
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.section-heading h2 {
+    color: #064d59;
+
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+}
+
+.section-heading p {
+    margin-top: 15px;
+
+    color: #71868a;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* GRID */
+
+.specialties-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+.specialty-card {
+    min-height: 88px;
+
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px;
+
+    border: 1px solid #e4f0f1;
+
+    border-radius: 15px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 5px 20px rgba(10, 90, 100, .04);
+
+    transition: .25s ease;
+}
+
+.specialty-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #a8dfe5;
+
+    box-shadow:
+        0 12px 30px rgba(10, 90, 100, .10);
+}
+
+.specialty-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #e5f8fa;
+
+    color: #0799a9;
+
+    font-size: 20px;
+}
+
+.specialty-card h3 {
+    color: #16515a;
+    font-size: 13px;
+}
+
+.specialty-card p {
+    margin-top: 5px;
+
+    color: #8a9b9f;
+
+    font-size: 10px;
+}
+
+.specialty-card > span {
+    color: #0a9aaa;
+}
+
+.section-button {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.outline-btn {
+    display: inline-flex;
+
+    padding: 12px 20px;
+
+    border: 1px solid #0b9aaa;
+    border-radius: 25px;
+
+    color: #078b9a;
+
+    font-size: 12px;
+    font-weight: 700;
+}

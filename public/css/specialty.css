@@ -1,0 +1,377 @@
+/* =========================================
+   SPECIALTY HERO
+========================================= */
+
+.specialty-hero {
+    padding: 80px 0;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #d8f5f8,
+            #f7fcfc 65%
+        );
+}
+
+.specialty-hero-container {
+    width: min(1100px, 92%);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+.back-link {
+    display: inline-block;
+
+    margin-bottom: 25px;
+
+    color: #078f9d;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.specialty-hero-content h1 {
+    margin-top: 10px;
+
+    color: #064d59;
+
+    font-size: clamp(42px, 5vw, 60px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+}
+
+.specialty-hero-content h1 span {
+    display: block;
+
+    color: #0ba2b2;
+
+    font-size: .65em;
+
+    margin-top: 8px;
+
+    letter-spacing: -1px;
+}
+
+.specialty-hero-content > p {
+    max-width: 520px;
+
+    margin: 22px 0;
+
+    color: #71868a;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+.specialty-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.specialty-hero-image img {
+    width: 100%;
+    height: 450px;
+
+    object-fit: cover;
+
+    border-radius: 30px;
+}
+
+
+/* =========================================
+   OVERVIEW
+========================================= */
+
+.specialty-overview {
+    padding: 100px 0;
+
+    background: white;
+}
+
+.section-container {
+    width: min(1100px, 92%);
+    margin: auto;
+}
+
+.overview-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+.overview-image img {
+    width: 100%;
+    height: 430px;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+}
+
+.overview-content h2 {
+    margin-top: 8px;
+
+    color: #064d59;
+
+    font-size: 40px;
+
+    line-height: 1.15;
+}
+
+.overview-content p {
+    margin-top: 18px;
+
+    color: #71868a;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+.text-button {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    color: #078f9d;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   SPECIALTY SERVICES
+========================================= */
+
+.specialty-services {
+    padding: 90px 0;
+
+    background: #f4fbfc;
+}
+
+.specialty-service-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+}
+
+.specialty-service-card {
+    position: relative;
+
+    padding: 28px;
+
+    min-height: 210px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    border: 1px solid #e0edef;
+
+    transition: .25s ease;
+}
+
+.specialty-service-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #9bdce2;
+
+    box-shadow:
+        0 15px 30px rgba(10, 80, 90, .08);
+}
+
+.service-number {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    color: #a5cbd0;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.service-check {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 12px;
+
+    background: #e4f8fa;
+
+    color: #079aaa;
+
+    font-weight: 800;
+}
+
+.specialty-service-card h3 {
+    color: #15515a;
+
+    font-size: 16px;
+}
+
+.specialty-service-card p {
+    margin-top: 10px;
+
+    color: #788c90;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   SPECIALTY PROCESS
+========================================= */
+
+.specialty-process {
+    padding: 90px 0;
+
+    background: white;
+}
+
+.specialty-process-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 14px;
+}
+
+.specialty-process-card {
+    padding: 28px;
+
+    min-height: 220px;
+
+    border-radius: 18px;
+
+    background: #f5fbfc;
+
+    border: 1px solid #e1edef;
+}
+
+.specialty-process-card > span {
+    color: #079aaa;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+.specialty-process-card h3 {
+    margin-top: 40px;
+
+    color: #15515a;
+
+    font-size: 16px;
+}
+
+.specialty-process-card p {
+    margin-top: 10px;
+
+    color: #788c90;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .specialty-hero-container,
+    .overview-grid {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .specialty-hero-content {
+        text-align: center;
+    }
+
+    .specialty-hero-content > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .specialty-buttons {
+        justify-content: center;
+    }
+
+    .specialty-hero-image,
+    .overview-image {
+        max-width: 600px;
+
+        margin: auto;
+    }
+
+    .specialty-service-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .specialty-process-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .specialty-hero {
+        padding: 60px 0;
+    }
+
+    .specialty-hero-content h1 {
+        font-size: 42px;
+    }
+
+    .specialty-hero-image img,
+    .overview-image img {
+        height: 330px;
+    }
+
+    .specialty-service-grid,
+    .specialty-process-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

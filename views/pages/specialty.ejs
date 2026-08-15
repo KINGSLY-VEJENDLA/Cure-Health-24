@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        <%= specialty.name %> | Cure Health 24
+    </title>
+        <link rel="icon" type="image/png" href="/images/logo/favicon.png">
+
+
+    <meta
+        name="description"
+        content="<%= specialty.description %> Cure Health 24."
+    >
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/specialty.css">
+    <link rel="stylesheet" href="/css/cta.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <%- include('../partials/navbar') %>
+
+
+    <main>
+
+
+        <!-- =================================
+             SPECIALTY HERO
+        ================================== -->
+
+        <section class="specialty-hero">
+
+            <div class="specialty-hero-container">
+
+
+                <div class="specialty-hero-content">
+
+                    <a
+                        href="/medical-services"
+                        class="back-link hero-label"
+                    >
+                        ← All Medical Services
+                    </a>
+
+
+                    <span class="hero-label">
+                        Medical Specialty
+                    </span>
+
+
+                    <h1>
+                        <%= specialty.name %>
+                        <span>
+                            <%= specialty.shortName %>
+                        </span>
+                    </h1>
+
+
+                    <p>
+                        <%= specialty.description %>
+                    </p>
+
+
+                    <div class="specialty-buttons">
+
+                        <a
+                            href="/appointment"
+                            class="service-btn primary"
+                        >
+                            Book Appointment
+                        </a>
+
+                        <a
+                            href="/find-a-doctor"
+                            class="service-btn secondary"
+                        >
+                            Find a Doctor
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="specialty-hero-image">
+
+                    <img
+                        src="<%= specialty.image %>"
+                        alt="<%= specialty.name %> healthcare"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             OVERVIEW
+        ================================== -->
+
+        <section class="specialty-overview">
+
+            <div class="section-container">
+
+                <div class="overview-grid">
+
+
+                    <div class="overview-image">
+
+                        <img
+                            src="<%= specialty.image %>"
+                            alt="<%= specialty.name %>"
+                        >
+
+                    </div>
+
+
+                    <div class="overview-content">
+
+                        <span class="section-label">
+                            About <%= specialty.name %>
+                        </span>
+
+
+                        <h2>
+                            Specialized Care
+                            With You in Mind
+                        </h2>
+
+
+                        <p>
+                            <%= specialty.overview %>
+                        </p>
+
+
+                        <a
+                            href="/appointment"
+                            class="text-button"
+                        >
+                            Schedule a Consultation →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             SERVICES
+        ================================== -->
+
+        <section class="specialty-services">
+
+            <div class="section-container">
+
+
+                <div class="section-heading centered">
+
+                    <span class="section-label">
+                        What We Offer
+                    </span>
+
+                    <h2>
+                        <%= specialty.name %> Services
+                    </h2>
+
+                    <p>
+                        Explore the healthcare services available
+                        for your <%= specialty.name.toLowerCase() %>
+                        needs.
+                    </p>
+
+                </div>
+
+
+                <div class="specialty-service-grid">
+
+                    <% specialty.services.forEach((service, index) => { %>
+
+                        <div class="specialty-service-card">
+
+                            <span class="service-number">
+                                <%= String(index + 1).padStart(2, "0") %>
+                            </span>
+
+
+                            <div class="service-check">
+                                ✓
+                            </div>
+
+
+                            <h3>
+                                <%= service %>
+                            </h3>
+
+
+                            <p>
+                                Professional healthcare support
+                                focused on your individual needs.
+                            </p>
+
+                        </div>
+
+                    <% }) %>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             CARE JOURNEY
+        ================================== -->
+
+        <section class="specialty-process">
+
+            <div class="section-container">
+
+
+                <div class="section-heading centered">
+
+                    <span class="section-label">
+                        Your Care Journey
+                    </span>
+
+                    <h2>
+                        Getting Started Is Simple
+                    </h2>
+
+                </div>
+
+
+                <div class="specialty-process-grid">
+
+
+                    <div class="specialty-process-card">
+
+                        <span>01</span>
+
+                        <h3>
+                            Choose Your Care
+                        </h3>
+
+                        <p>
+                            Explore our medical specialty and
+                            identify the healthcare service you need.
+                        </p>
+
+                    </div>
+
+
+                    <div class="specialty-process-card">
+
+                        <span>02</span>
+
+                        <h3>
+                            Find a Doctor
+                        </h3>
+
+                        <p>
+                            Find a healthcare professional who
+                            matches your specialty and care needs.
+                        </p>
+
+                    </div>
+
+
+                    <div class="specialty-process-card">
+
+                        <span>03</span>
+
+                        <h3>
+                            Book an Appointment
+                        </h3>
+
+                        <p>
+                            Request an appointment and take the
+                            next step in your healthcare journey.
+                        </p>
+
+                    </div>
+
+
+                    <div class="specialty-process-card">
+
+                        <span>04</span>
+
+                        <h3>
+                            Receive Care
+                        </h3>
+
+                        <p>
+                            Get the professional healthcare support
+                            you need.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             CTA
+        ================================== -->
+
+        <section class="health-cta">
+
+            <div class="cta-container">
+
+                <div class="cta-content">
+
+                    <span>
+                        Cure Health 24
+                    </span>
+
+                    <h2>
+                        Need <%= specialty.name %> Care?
+                    </h2>
+
+                    <p>
+                        Find a healthcare professional or
+                        request an appointment today.
+                    </p>
+
+                </div>
+
+
+                <div class="cta-actions">
+
+                    <a
+                        href="/find-a-doctor"
+                        class="cta-button light"
+                    >
+                        Find a Doctor
+                    </a>
+
+
+                    <a
+                        href="/appointment"
+                        class="cta-button yellow"
+                    >
+                        Book Appointment
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <%- include('../partials/footer') %>
+    <script src="/js/navbar.js"></script>
+
+</body>
+
+</html>

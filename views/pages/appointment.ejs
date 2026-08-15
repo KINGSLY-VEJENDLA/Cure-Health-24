@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Book an Appointment | Cure Health 24</title>
+        <link rel="icon" type="image/png" href="/images/logo/favicon.png">
+
+
+<meta
+    name="description"
+    content="Book a healthcare appointment with Cure Health 24. Request an appointment with a healthcare professional based on your healthcare needs."
+>
+
+<meta
+    name="keywords"
+    content="book doctor appointment, healthcare appointment, medical appointment, Cure Health 24"
+>
+
+<meta name="robots" content="index, follow">
+
+<link
+    rel="canonical"
+    href="https://curehealth24.com/appointment"
+>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/appointment.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/hero.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <%- include('../partials/navbar') %>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="appointment-hero">
+
+            <div class="section-container">
+
+                <div class="appointment-hero-content">
+
+                    <span class="section-label hero-label">
+                        Book an Appointment
+                    </span>
+
+                    <h1>
+                        Your Health.
+                        <span>Your Time.</span>
+                    </h1>
+
+                    <p>
+                        Request an appointment with a healthcare
+                        professional that fits your needs.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- APPOINTMENT FORM -->
+
+        <section class="appointment-section">
+
+            <div class="section-container">
+
+                <div class="appointment-layout">
+
+
+                    <!-- LEFT -->
+
+                    <div class="appointment-info">
+
+                        <span class="section-label">
+                            Start Your Care Journey
+                        </span>
+
+                        <h2>
+                            Schedule Your
+                            Appointment
+                        </h2>
+
+                        <p>
+                            Fill in your details and our team will
+                            help you with the next steps for your
+                            appointment.
+                        </p>
+
+
+                        <div class="appointment-benefit">
+
+                            <div class="appointment-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+
+                            <div>
+                                <h3>
+                                    Easy Request
+                                </h3>
+
+                                <p>
+                                    Submit your appointment request
+                                    in just a few steps.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="appointment-benefit">
+
+                            <div class="appointment-icon">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+
+                            <div>
+                                <h3>
+                                    Multiple Specialties
+                                </h3>
+
+                                <p>
+                                    Choose from a wide range of
+                                    medical specialties.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="appointment-benefit">
+
+                            <div class="appointment-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+
+                            <div>
+                                <h3>
+                                    Patient Focused
+                                </h3>
+
+                                <p>
+                                    We make your healthcare journey
+                                    simpler and more convenient.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="contact-info">
+
+    <div class="contact-item">
+        <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+        </div>
+
+        <div>
+            <span>Email</span>
+            <p>info@curehealth24.com</p>
+        </div>
+    </div>
+
+
+    <div class="contact-item">
+        <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+        </div>
+
+        <div>
+            <span>Phone</span>
+            <p>+91 98494 66959</p>
+        </div>
+    </div>
+
+</div>
+
+                    </div>
+
+
+
+
+                    <!-- FORM -->
+
+                    <div class="appointment-form-card">
+
+                        <form
+                            id="appointmentForm"
+                            action="/appointment"
+                            method="POST"
+                        >
+
+                            <div class="form-heading">
+
+                                <h3>
+                                    Appointment Details
+                                </h3>
+
+                                <p>
+                                    Please provide your information
+                                    below.
+                                </p>
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="firstName">
+                                        First Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="firstName"
+                                        name="firstName"
+                                        placeholder="Enter first name"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="lastName">
+                                        Last Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="lastName"
+                                        name="lastName"
+                                        placeholder="Enter last name"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="email">
+                                        Email Address
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        placeholder="you@example.com"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="phone">
+                                        Phone Number
+                                    </label>
+
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        placeholder="Enter phone number"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="specialty">
+                                        Medical Specialty
+                                    </label>
+
+                                    <select
+                                        id="specialty"
+                                        name="specialty"
+                                        required
+                                    >
+
+                                        <option value="">
+                                            Select specialty
+                                        </option>
+
+                                        <option>
+                                            Cardiology
+                                        </option>
+
+                                        <option>
+                                            Dentistry
+                                        </option>
+
+                                        <option>
+                                            Gastroenterology
+                                        </option>
+
+                                        <option>
+                                            Neurology
+                                        </option>
+
+                                        <option>
+                                            Orthopedics
+                                        </option>
+
+                                        <option>
+                                            Pediatrics
+                                        </option>
+
+                                        <option>
+                                            Gynecology
+                                        </option>
+
+                                        <option>
+                                            Dermatology
+                                        </option>
+
+                                        <option>
+                                            General Medicine
+                                        </option>
+
+                                        <option>
+                                            Urology
+                                        </option>
+
+                                        <option>
+                                            ENT
+                                        </option>
+
+                                        <option>
+                                            Renal Care
+                                        </option>
+
+                                        <option>
+                                            Others
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="doctor">
+                                        Preferred Doctor
+                                    </label>
+
+                                    <select
+                                        id="doctor"
+                                        name="doctor"
+                                    >
+
+                                        <option value="">
+                                            Any available doctor
+                                        </option>
+
+                                        <!-- <option>
+                                            Dr. Sarah Johnson
+                                        </option>
+
+                                        <option>
+                                            Dr. Michael Anderson
+                                        </option>
+
+                                        <option>
+                                            Dr. Emily Williams
+                                        </option>
+
+                                        <option>
+                                            Dr. James Wilson
+                                        </option>
+
+                                        <option>
+                                            Dr. Olivia Brown
+                                        </option> -->
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="date">
+                                        Preferred Date
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        id="date"
+                                        name="date"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="time">
+                                        Preferred Time
+                                    </label>
+
+                                    <select
+                                        id="time"
+                                        name="time"
+                                        required
+                                    >
+
+                                        <option value="">
+                                            Select time
+                                        </option>
+
+                                        <option>
+                                            09:00 AM
+                                        </option>
+
+                                        <option>
+                                            10:00 AM
+                                        </option>
+
+                                        <option>
+                                            11:00 AM
+                                        </option>
+
+                                        <option>
+                                            12:00 PM
+                                        </option>
+
+                                        <option>
+                                            02:00 PM
+                                        </option>
+
+                                        <option>
+                                            03:00 PM
+                                        </option>
+
+                                        <option>
+                                            04:00 PM
+                                        </option>
+
+                                        <option>
+                                            05:00 PM
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="message">
+                                    Reason for Visit
+                                </label>
+
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="4"
+                                    placeholder="Briefly describe your reason for consultation"
+                                ></textarea>
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="appointment-submit"
+                            >
+                                Request Appointment
+                                <span>→</span>
+                            </button>
+
+
+                            <p class="form-note">
+                                By submitting this form, you agree
+                                to be contacted regarding your
+                                appointment request.
+                            </p>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CTA -->
+
+        <section class="appointment-bottom">
+
+            <div class="section-container">
+
+                <div class="appointment-bottom-content">
+
+                    <span class="section-label">
+                        Need Help?
+                    </span>
+
+                    <h2>
+                        Not Sure Which Care You Need?
+                    </h2>
+
+                    <p>
+                        Explore our medical services or find a
+                        doctor who can help guide you.
+                    </p>
+
+                    <div class="appointment-bottom-buttons">
+
+                        <a
+                            href="/medical-services"
+                            class="appointment-outline-btn"
+                        >
+                            Explore Services
+                        </a>
+
+                        <a
+                            href="/find-a-doctor"
+                            class="appointment-dark-btn"
+                        >
+                            Find a Doctor
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <%- include('../partials/footer') %>
+
+
+    <script src="/js/appointment.js"></script>
+    <script src="/js/navbar.js"></script>
+
+</body>
+
+</html>

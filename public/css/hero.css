@@ -1,0 +1,763 @@
+.hero {
+    background:
+        radial-gradient(
+            circle at 75% 20%,
+            #d9f6f9 0%,
+            #eefbfd 35%,
+            #f8fcfc 70%
+        );
+
+    overflow: hidden;
+}
+
+.hero-container {
+    width: min(1180px, 92%);
+    min-height: 590px;
+
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+    gap: 40px;
+}
+
+
+/* CONTENT */
+
+.hero-content {
+    padding: 60px 0;
+}
+
+.hero-label {
+    display: inline-block;
+
+    margin-bottom: 18px;
+    padding: 7px 13px;
+
+    border-radius: 20px;
+
+    background: #d9f3f5;
+    color: #087485;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    max-width: 550px;
+
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1.04;
+
+    letter-spacing: -2px;
+
+    color: #064653;
+}
+
+.hero h1 span {
+    display: block;
+    color: #18a6b7;
+}
+
+.hero p {
+    max-width: 520px;
+
+    margin: 25px 0;
+
+    color: #557279;
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* BUTTONS */
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 0 22px;
+
+    border-radius: 25px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: #075d69;
+    color: white;
+}
+
+.btn-secondary {
+    background: white;
+    color: #075d69;
+
+    border: 1px solid #cce1e4;
+}
+
+
+/* SEARCH */
+
+.hero-search {
+    max-width: 490px;
+
+    margin-top: 30px;
+    padding: 8px;
+
+    display: flex;
+    align-items: center;
+
+    background: white;
+
+    border: 1px solid #e0edef;
+
+    border-radius: 14px;
+
+    box-shadow: 0 10px 35px rgba(25, 95, 105, 0.08);
+}
+
+.search-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #e5f8fa;
+
+    color: #0796a7;
+}
+
+.search-text {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-left: 12px;
+}
+
+.search-text small {
+    color: #8ca0a4;
+    font-size: 10px;
+}
+
+.search-text span {
+    margin-top: 3px;
+
+    color: #46656a;
+    font-size: 12px;
+}
+
+.hero-search button {
+    border: 0;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    background: #0c9faf;
+    color: white;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* IMAGE */
+
+.hero-image {
+    position: relative;
+
+    align-self: stretch;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.hero-image::before {
+    content: "";
+
+    position: absolute;
+
+    width: 430px;
+    height: 430px;
+
+    right: 0;
+    bottom: 0;
+
+    border-radius: 50% 50% 0 0;
+
+    background: #cceef2;
+}
+
+.hero-image img {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 540px;
+    height: 520px;
+
+    object-fit: cover;
+
+    border-radius: 40px 40px 0 0;
+}
+
+.hero-floating-card {
+    position: absolute;
+
+    z-index: 5;
+
+    left: 15px;
+    bottom: 40px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 15px;
+
+    background: white;
+
+    border-radius: 14px;
+
+    box-shadow: 0 15px 40px rgba(0, 60, 70, 0.15);
+}
+
+.floating-icon {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dff7f1;
+    color: #159b78;
+
+    font-weight: 800;
+}
+
+.hero-floating-card div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-floating-card strong {
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.hero-floating-card small {
+    margin-top: 3px;
+    color: #809397;
+    font-size: 9px;
+}
+
+/* =========================================================
+   HERO FLOATING MEDICAL ELEMENTS
+========================================================= */
+
+.hero-image {
+    position: relative;
+
+    min-height: 560px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   MAIN IMAGE
+========================================================= */
+
+.hero-image-main {
+    position: relative;
+
+    width: 390px;
+    height: 480px;
+
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.hero-image-main img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 28px;
+
+    display: block;
+
+    box-shadow:
+        0 25px 60px rgba(6, 77, 89, 0.15);
+}
+
+
+/* =========================================================
+   FLOATING ELEMENT
+========================================================= */
+
+.hero-float {
+    position: absolute;
+
+    width: 68px;
+    height: 68px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+        0 15px 35px rgba(6, 77, 89, 0.14);
+
+    z-index: 5;
+
+    font-size: 27px;
+
+    color: #0BA2B2;
+
+    backdrop-filter: blur(8px);
+
+    animation:
+        heroFloat 5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   FLOATING POSITIONS
+========================================================= */
+
+.hero-float-1 {
+    top: 45px;
+    left: 5px;
+
+    animation-delay: 0s;
+}
+.hero-float-1 img {
+    width: 50px;
+    height: 50px;
+}
+
+
+.hero-float-2 {
+    top: 120px;
+    right: 0;
+
+    color: #075763;
+
+    animation-delay: 1s;
+}
+.hero-float-2 img {
+    width: 50px;
+    height: 50px;
+}
+
+
+.hero-float-3 {
+    bottom: 130px;
+    left: -10px;
+
+    color: #0BA2B2;
+
+    animation-delay: 2s;
+}
+.hero-float-3 img {
+    width: 50px;
+    height: 50px;
+}
+
+.hero-float-4 {
+    bottom: 45px;
+    right: 15px;
+
+    color: #075763;
+
+    animation-delay: 3s;
+}
+.hero-float-4 img {
+    width: 50px;
+    height: 50px;
+}
+
+.hero-float-5 {
+    top: 20px;
+    right: 120px;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 15px;
+
+    font-size: 23px;
+
+    animation-delay: 1.5s;
+}
+
+.hero-float-5 img {
+    width: 50px;
+    height: 50px;
+}
+.hero-float-6 {
+    bottom: 210px;
+    right: -25px;
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 15px;
+
+    font-size: 25px;
+
+    animation-delay: 2.5s;
+}
+.hero-float-6 img {
+    width: 50px;
+    height: 50px;
+}
+
+/* =========================================================
+   FLOATING ANIMATION
+========================================================= */
+
+@keyframes heroFloat {
+
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+}
+
+
+/* =========================================================
+   QUALITY CARE CARD
+========================================================= */
+
+.hero-floating-card {
+
+    position: absolute;
+
+    right: -15px;
+    bottom: 55px;
+
+    z-index: 6;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 18px;
+
+    min-width: 210px;
+
+    background: rgba(6, 77, 89, 0.94);
+
+    border-radius: 15px;
+
+    color: white;
+
+    box-shadow:
+        0 18px 40px rgba(6, 77, 89, 0.2);
+
+    animation:
+        heroCardFloat 6s ease-in-out infinite;
+}
+
+
+.floating-icon {
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #0BA2B2;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+
+.hero-floating-card strong {
+    display: block;
+
+    font-size: 13px;
+
+    margin-bottom: 3px;
+}
+
+
+.hero-floating-card small {
+    display: block;
+
+    color: #c5e4e7;
+
+    font-size: 9px;
+}
+
+
+@keyframes heroCardFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .hero-image {
+        min-height: 500px;
+    }
+
+    .hero-image-main {
+        width: 330px;
+        height: 420px;
+    }
+
+    .hero-float {
+        width: 58px;
+        height: 58px;
+
+        font-size: 23px;
+    }
+
+    .hero-float-1 {
+        left: 10px;
+    }
+
+    .hero-float-2 {
+        right: 10px;
+    }
+
+    .hero-float-3 {
+        left: 0;
+    }
+
+    .hero-float-6 {
+        right: 0;
+    }
+
+    .hero-floating-card {
+        right: 0;
+        bottom: 35px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero-image {
+        min-height: 460px;
+
+        margin-top: 30px;
+    }
+
+
+    .hero-image-main {
+        width: 280px;
+        height: 370px;
+    }
+
+
+    .hero-float {
+        width: 52px;
+        height: 52px;
+
+        border-radius: 14px;
+
+        font-size: 20px;
+    }
+
+
+    .hero-float-1 {
+        top: 35px;
+        left: 5%;
+    }
+
+
+    .hero-float-2 {
+        top: 90px;
+        right: 5%;
+    }
+
+
+    .hero-float-3 {
+        bottom: 120px;
+        left: 3%;
+    }
+
+
+    .hero-float-4 {
+        bottom: 55px;
+        right: 7%;
+    }
+
+
+    .hero-float-5 {
+        top: 10px;
+        right: 25%;
+
+        width: 45px;
+        height: 45px;
+    }
+
+
+    .hero-float-6 {
+        display: none;
+    }
+
+
+    .hero-floating-card {
+        right: 50%;
+
+        transform: translateX(50%);
+
+        bottom: 25px;
+
+        min-width: 200px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero-image {
+        min-height: 420px;
+    }
+
+
+    .hero-image-main {
+        width: 240px;
+        height: 320px;
+    }
+
+
+    .hero-float {
+        width: 45px;
+        height: 45px;
+
+        font-size: 18px;
+    }
+
+
+    .hero-float-1 {
+        left: 2%;
+        top: 35px;
+    }
+
+
+    .hero-float-2 {
+        right: 2%;
+        top: 75px;
+    }
+
+
+    .hero-float-3 {
+        left: 0;
+        bottom: 110px;
+    }
+
+
+    .hero-float-4 {
+        right: 2%;
+        bottom: 50px;
+    }
+
+
+    .hero-float-5 {
+        display: none;
+    }
+
+
+    .hero-floating-card {
+        padding: 11px 14px;
+
+        min-width: 180px;
+    }
+
+}

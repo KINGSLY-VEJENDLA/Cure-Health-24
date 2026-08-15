@@ -1,0 +1,386 @@
+/* ==========================================
+   HEALTH TOPIC HERO
+========================================== */
+
+.health-topic-hero {
+    padding: 90px 0 80px;
+
+    background: #F4FAFA;
+}
+
+.health-topic-hero-content {
+    max-width: 800px;
+}
+
+.health-topic-hero .section-label {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: #0BA2B2;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+}
+
+.health-topic-hero h1 {
+    margin: 0;
+
+    color: #064D59;
+
+    font-size: 48px;
+
+    line-height: 1.15;
+}
+
+.health-topic-hero p {
+    max-width: 700px;
+
+    margin-top: 20px;
+
+    color: #64777B;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
+
+.health-topic-main {
+    padding: 80px 0;
+}
+
+.health-topic-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        330px;
+
+    gap: 70px;
+
+    align-items: start;
+}
+
+
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.health-topic-content {
+    max-width: 850px;
+}
+
+.topic-section {
+    display: grid;
+
+    grid-template-columns: 55px 1fr;
+
+    gap: 20px;
+
+    padding-bottom: 45px;
+
+    margin-bottom: 45px;
+
+    border-bottom: 1px solid #E5EEEE;
+}
+
+.topic-number {
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #E8F7F8;
+
+    color: #0BA2B2;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+.topic-section h2 {
+    margin: 0 0 15px;
+
+    color: #064D59;
+
+    font-size: 27px;
+}
+
+.topic-section p {
+    margin: 0;
+
+    color: #65777A;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+
+/* ==========================================
+   LIST
+========================================== */
+
+.topic-list {
+    padding: 0;
+
+    margin: 0;
+
+    list-style: none;
+}
+
+.topic-list li {
+    position: relative;
+
+    padding-left: 28px;
+
+    margin-bottom: 13px;
+
+    color: #65777A;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+.topic-list li::before {
+    content: "✓";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    color: #0BA2B2;
+
+    font-weight: 800;
+}
+
+
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.health-topic-sidebar {
+    position: sticky;
+
+    top: 110px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.topic-sidebar-card {
+    padding: 30px;
+
+    border-radius: 16px;
+
+    background: #075763;
+
+    box-shadow: 0 12px 35px rgba(6, 77, 89, 0.12);
+}
+
+.topic-sidebar-card > span {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #7EDDE5;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+.topic-sidebar-card h3 {
+    margin: 0;
+
+    color: #FFFFFF;
+
+    font-size: 22px;
+
+    line-height: 1.3;
+}
+
+.topic-sidebar-card p {
+    margin: 15px 0 22px;
+
+    color: #D7EFF1;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+.topic-sidebar-button {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 13px 16px;
+
+    border-radius: 8px;
+
+    background: #0BA2B2;
+
+    color: #FFFFFF;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.topic-sidebar-button:hover {
+    transform: translateY(-2px);
+}
+
+.topic-sidebar-card.light {
+    background: #F2FAFA;
+
+    box-shadow: none;
+
+    border: 1px solid #DDEDEE;
+}
+
+.topic-sidebar-card.light > span {
+    color: #0BA2B2;
+}
+
+.topic-sidebar-card.light h3 {
+    color: #064D59;
+}
+
+.topic-sidebar-card.light p {
+    color: #6B7E81;
+}
+
+.topic-sidebar-link {
+    color: #075763;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+
+/* ==========================================
+   DISCLAIMER
+========================================== */
+
+.health-topic-disclaimer {
+    padding: 25px 0;
+
+    background: #F5F8F8;
+
+    border-top: 1px solid #E5EEEE;
+}
+
+.health-topic-disclaimer p {
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    color: #7A898C;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+    text-align: center;
+}
+
+.health-topic-disclaimer strong {
+    color: #064D59;
+}
+
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+    .health-topic-layout {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .health-topic-sidebar {
+        position: static;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .health-topic-hero {
+        padding: 60px 0;
+    }
+
+    .health-topic-hero h1 {
+        font-size: 34px;
+    }
+
+    .health-topic-hero p {
+        font-size: 14px;
+    }
+
+    .health-topic-main {
+        padding: 55px 0;
+    }
+
+    .topic-section {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .health-topic-sidebar {
+        grid-template-columns: 1fr;
+    }
+
+}

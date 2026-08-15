@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Health Library | Health Information & Wellness | Cure Health 24</title>
+        <link rel="icon" type="image/png" href="/images/logo/favicon.png">
+
+
+<meta
+    name="description"
+    content="Explore the Cure Health 24 Health Library for reliable information about health conditions, symptoms, wellness, nutrition and everyday healthcare."
+>
+
+<meta
+    name="keywords"
+    content="health library, health information, medical information, health conditions, symptoms, wellness, nutrition"
+>
+
+<meta name="robots" content="index, follow">
+
+<link
+    rel="canonical"
+    href="https://curehealth24.com/health-library"
+>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/health-library.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/hero.css">
+
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <%- include('../partials/navbar') %>
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="library-hero">
+
+            <div class="section-container">
+
+                <div class="library-hero-content">
+
+                    <span class="section-label hero-label">
+                        Health Library
+                    </span>
+
+                    <h1>
+                        Understand Your Health.
+                        <span>Make Better Choices.</span>
+                    </h1>
+
+                    <p>
+                        Explore simple, reliable health information
+                        to help you understand conditions, treatments,
+                        wellness and everyday healthcare.
+                    </p>
+
+                    <div class="library-search">
+
+    <span>⌕</span>
+
+    <input
+        type="text"
+        id="healthSearch"
+        placeholder="Search health topics..."
+    >
+
+    <button
+        type="button"
+        id="searchHealth"
+    >
+        Search
+    </button>
+
+</div>
+<div
+    id="searchResults"
+    class="health-search-results"
+>
+</div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURED TOPICS -->
+
+        <section class="library-topics">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        Explore
+                    </span>
+
+                    <h2>
+                        Popular Health Topics
+                    </h2>
+
+                    <p>
+                        Find helpful information about common health
+                        conditions and medical specialties.
+                    </p>
+                    <div class="library-view-all">
+
+    <a href="/health-library/conditions">
+        View All Conditions →
+    </a>
+
+</div>
+
+                </div>
+
+
+                <div class="topic-grid">
+
+                    <a href="#" class="topic-card">
+
+                        <div class="topic-icon">
+                            <img
+                                src="/images/services/icons1.png"
+                                alt="Heart Health icon"
+                            >
+                        </div>
+
+                        <div>
+                            <h3>
+                                Heart Health
+                            </h3>
+
+                            <p>
+                                Learn about heart health,
+                                prevention and care.
+                            </p>
+                        </div>
+
+                        <span>→</span>
+
+                    </a>
+
+
+                    <a href="#" class="topic-card">
+
+                        <div class="topic-icon">
+                            <img
+                                src="/images/services/icons9.png"
+                                alt="Diabetes icon"
+                            >
+                        </div>
+
+                        <div>
+                            <h3>
+                                Diabetes
+                            </h3>
+
+                            <p>
+                                Understand diabetes, symptoms
+                                and healthy living.
+                            </p>
+                        </div>
+
+                        <span>→</span>
+
+                    </a>
+
+
+                    <a href="#" class="topic-card">
+
+                        <div class="topic-icon">
+                            <img
+                                src="/images/services/icons4.png"
+                                alt="Mental Wellness icon"
+                            >
+                        </div>
+
+                        <div>
+                            <h3>
+                                Mental Wellness
+                            </h3>
+
+                            <p>
+                                Resources for emotional and
+                                mental wellbeing.
+                            </p>
+                        </div>
+
+                        <span>→</span>
+
+                    </a>
+
+
+                    <a href="#" class="topic-card">
+
+                        <div class="topic-icon">
+                            <img
+                                src="/images/services/icons8.png"
+                                alt="Women's Health icon"
+                            >
+                        </div>
+
+                        <div>
+                            <h3>
+                                Women's Health
+                            </h3>
+
+                            <p>
+                                Information covering important
+                                women's health needs.
+                            </p>
+                        </div>
+
+                        <span>→</span>
+
+                    </a>
+
+
+                    <a href="#" class="topic-card">
+
+                        <div class="topic-icon">
+                            <img
+                                src="/images/services/icons6.png"
+                                alt="Children's Health icon"
+                            >
+                        </div>
+
+                        <div>
+                            <h3>
+                                Children's Health
+                            </h3>
+
+                            <p>
+                                Helpful information for children's
+                                health and development.
+                            </p>
+                        </div>
+
+                        <span>→</span>
+
+                    </a>
+
+
+                    <a href="#" class="topic-card">
+
+                        <div class="topic-icon">
+                            <img
+                                src="/images/services/icons9.png"
+                                alt="Healthy Living icon"
+                            >
+                        </div>
+
+                        <div>
+                            <h3>
+                                Healthy Living
+                            </h3>
+
+                            <p>
+                                Practical tips for a healthier
+                                everyday lifestyle.
+                            </p>
+                        </div>
+
+                        <span>→</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LATEST ARTICLES -->
+
+        <section class="library-articles">
+
+            <div class="section-container">
+
+                <div class="library-heading-row">
+
+                    <div class="section-heading">
+
+                        <span class="section-label">
+                            Health Resources
+                        </span>
+
+                        <h2>
+                            Latest From Our Health Library
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="article-grid">
+
+                    <article class="article-card">
+
+                        <div class="article-image article-one">
+                            <span>HEALTH</span>
+                        </div>
+
+                        <div class="article-content">
+
+                            <span class="article-category">
+                                Heart Health
+                            </span>
+
+                            <h3>
+                                Simple Ways to Support a
+                                Healthy Heart
+                            </h3>
+
+                            <p>
+                                Learn everyday habits that can
+                                support cardiovascular health.
+                            </p>
+
+                            <a href="#">
+                                Read Article →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="article-card">
+
+                        <div class="article-image article-two">
+                            <span>WELLNESS</span>
+                        </div>
+
+                        <div class="article-content">
+
+                            <span class="article-category">
+                                Wellness
+                            </span>
+
+                            <h3>
+                                Building Healthier Daily Habits
+                            </h3>
+
+                            <p>
+                                Small changes can make a meaningful
+                                difference to your overall wellbeing.
+                            </p>
+
+                            <a href="#">
+                                Read Article →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="article-card">
+
+                        <div class="article-image article-three">
+                            <span>CARE</span>
+                        </div>
+
+                        <div class="article-content">
+
+                            <span class="article-category">
+                                Preventive Care
+                            </span>
+
+                            <h3>
+                                Why Regular Health Checkups Matter
+                            </h3>
+
+                            <p>
+                                Discover why routine checkups can
+                                help you stay ahead of health concerns.
+                            </p>
+
+                            <a href="#">
+                                Read Article →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CTA -->
+
+        <section class="library-cta">
+
+            <div class="section-container">
+
+                <div class="library-cta-box">
+
+                    <div>
+
+                        <span class="section-label">
+                            Need Medical Guidance?
+                        </span>
+
+                        <h2>
+                            Talk to a Healthcare Professional
+                        </h2>
+
+                        <p>
+                            If you have concerns about your health,
+                            our healthcare professionals can help
+                            you find the right care.
+                        </p>
+
+                    </div>
+
+                    <div class="library-cta-buttons">
+
+                        <a
+                            href="/find-a-doctor"
+                            class="cta-light"
+                        >
+                            Find a Doctor
+                        </a>
+
+                        <a
+                            href="/appointment"
+                            class="cta-outline"
+                        >
+                            Book Appointment
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <script>
+    const healthLibrary = [
+
+        {
+            title: "Understanding Diabetes",
+            category: "Diabetes",
+            description:
+                "Learn about diabetes, common symptoms, risk factors, management and healthy lifestyle choices.",
+            url: "/health-library/conditions/diabetes"
+        },
+
+        {
+            title: "Heart Health",
+            category: "Heart Health",
+            description:
+                "Learn about cardiovascular health, heart disease prevention and healthy habits.",
+            url: "/health-library/conditions/heart-health"
+        },
+
+        {
+            title: "High Blood Pressure",
+            category: "Heart Health",
+            description:
+                "Understand hypertension, common risk factors and the importance of regular monitoring.",
+            url: "/health-library/conditions/hypertension"
+        },
+
+        {
+            title: "Common Causes of Headaches",
+            category: "Neurology",
+            description:
+                "Learn about common types of headaches, possible causes and when to seek medical care.",
+            url: "/health-library/symptoms/headache"
+        },
+
+        {
+            title: "Dental Health",
+            category: "Dental Health",
+            description:
+                "Learn about oral hygiene, dental care and maintaining healthy teeth and gums.",
+            url: "/health-library/dental-health"
+        },
+         {
+            title: "Migraine",
+            category: "Neurology",
+            description:
+                "Learn about migraine symptoms, common triggers and general approaches to managing migraine.",
+            url: "/health-library/conditions/migraine"
+        },
+
+        {
+            title: "Healthy Eating",
+            category: "Nutrition & Wellness",
+            description:
+                "Practical information about balanced nutrition and healthy eating habits.",
+            url: "/health-library/articles/healthy-eating"
+        },
+
+        {
+            title: "Women's Health",
+            category: "Women's Health",
+            description:
+                "Explore general information about women's health and preventive care.",
+            url: "/health-library/womens-health"
+        },
+
+        {
+            title: "Children's Health",
+            category: "Children's Health",
+            description:
+                "Helpful information about children's health, development and preventive care.",
+            url: "/health-library/childrens-health"
+        },
+
+        {
+            title: "Back Pain",
+            category: "Orthopedics",
+            description:
+                "Learn about common causes of back pain and when professional evaluation may be appropriate.",
+            url: "/health-library/symptoms/back-pain"
+        },
+
+        {
+            title: "Asthma",
+            category: "Respiratory Health",
+            description:
+                "Understand asthma symptoms, triggers and general approaches to managing the condition.",
+            url: "/health-library/conditions/asthma"
+        }
+
+    ];
+</script>
+
+    </main>
+
+    <%- include('../partials/footer') %>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/health-library.js"></script>
+    <script src="/js/navbar.js"></script>
+
+
+</body>
+
+</html>

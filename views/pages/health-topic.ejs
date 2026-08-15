@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        <%= topic.title %> | Cure Health 24
+    </title>
+        <link rel="icon" type="image/png" href="/images/logo/favicon.png">
+
+
+    <meta
+        name="description"
+        content="<%= topic.shortDescription %>"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/navbar.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/footer.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/health-topic.css"
+    >
+    <link rel="stylesheet" href="/css/hero.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <%- include('../partials/navbar') %>
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="health-topic-hero">
+
+        <div class="section-container">
+
+            <div class="health-topic-hero-content">
+
+                <span class="section-label hero-label">
+                    <%= topic.category %>
+                </span>
+
+                <h1>
+                    <%= topic.title %>
+                </h1>
+
+                <p>
+                    <%= topic.shortDescription %>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="health-topic-main">
+
+        <div class="section-container">
+
+            <div class="health-topic-layout">
+
+
+                <!-- CONTENT -->
+
+                <article class="health-topic-content">
+
+
+                    <!-- OVERVIEW -->
+
+                    <section class="topic-section">
+
+                        <span class="topic-number">
+                            01
+                        </span>
+
+                        <div>
+
+                            <h2>
+                                Overview
+                            </h2>
+
+                            <p>
+                                <%= topic.overview %>
+                            </p>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- SYMPTOMS -->
+
+                    <% if (topic.symptoms && topic.symptoms.length) { %>
+
+                        <section class="topic-section">
+
+                            <span class="topic-number">
+                                02
+                            </span>
+
+                            <div>
+
+                                <h2>
+                                    Symptoms
+                                </h2>
+
+                                <ul class="topic-list">
+
+                                    <% topic.symptoms.forEach(function(symptom) { %>
+
+                                        <li>
+                                            <%= symptom %>
+                                        </li>
+
+                                    <% }); %>
+
+                                </ul>
+
+                            </div>
+
+                        </section>
+
+                    <% } %>
+
+
+
+                    <!-- RISK FACTORS -->
+
+                    <% if (topic.riskFactors && topic.riskFactors.length) { %>
+
+                        <section class="topic-section">
+
+                            <span class="topic-number">
+                                03
+                            </span>
+
+                            <div>
+
+                                <h2>
+                                    Risk Factors
+                                </h2>
+
+                                <ul class="topic-list">
+
+                                    <% topic.riskFactors.forEach(function(risk) { %>
+
+                                        <li>
+                                            <%= risk %>
+                                        </li>
+
+                                    <% }); %>
+
+                                </ul>
+
+                            </div>
+
+                        </section>
+
+                    <% } %>
+
+
+
+                    <!-- TREATMENT -->
+
+                    <% if (topic.treatment && topic.treatment.length) { %>
+
+                        <section class="topic-section">
+
+                            <span class="topic-number">
+                                04
+                            </span>
+
+                            <div>
+
+                                <h2>
+                                    Treatment & Management
+                                </h2>
+
+                                <ul class="topic-list">
+
+                                    <% topic.treatment.forEach(function(item) { %>
+
+                                        <li>
+                                            <%= item %>
+                                        </li>
+
+                                    <% }); %>
+
+                                </ul>
+
+                            </div>
+
+                        </section>
+
+                    <% } %>
+
+
+
+                    <!-- PREVENTION -->
+
+                    <% if (topic.prevention && topic.prevention.length) { %>
+
+                        <section class="topic-section">
+
+                            <span class="topic-number">
+                                05
+                            </span>
+
+                            <div>
+
+                                <h2>
+                                    Prevention & Healthy Habits
+                                </h2>
+
+                                <ul class="topic-list">
+
+                                    <% topic.prevention.forEach(function(item) { %>
+
+                                        <li>
+                                            <%= item %>
+                                        </li>
+
+                                    <% }); %>
+
+                                </ul>
+
+                            </div>
+
+                        </section>
+
+                    <% } %>
+
+
+                </article>
+
+
+
+                <!-- SIDEBAR -->
+
+                <aside class="health-topic-sidebar">
+
+
+                    <div class="topic-sidebar-card">
+
+                        <span>
+                            NEED MEDICAL GUIDANCE?
+                        </span>
+
+                        <h3>
+                            Talk to a Healthcare Professional
+                        </h3>
+
+                        <p>
+                            If you have concerns about your
+                            symptoms or health, consider speaking
+                            with a qualified healthcare professional.
+                        </p>
+
+                        <a
+                            href="/contact"
+                            class="topic-sidebar-button"
+                        >
+                            Contact Us
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+
+
+                    <div class="topic-sidebar-card light">
+
+                        <span>
+                            CURE HEALTH 24
+                        </span>
+
+                        <h3>
+                            Your Health Matters
+                        </h3>
+
+                        <p>
+                            Explore our Health Library for
+                            reliable general health information.
+                        </p>
+
+                        <a
+                            href="/health-library"
+                            class="topic-sidebar-link"
+                        >
+                            Back to Health Library →
+                        </a>
+
+                    </div>
+
+
+                </aside>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- DISCLAIMER -->
+
+    <section class="health-topic-disclaimer">
+
+        <div class="section-container">
+
+            <p>
+                <strong>Health Information Disclaimer:</strong>
+                The information provided on this page is for
+                general educational purposes only and is not a
+                substitute for professional medical advice,
+                diagnosis or treatment. Always consult a qualified
+                healthcare professional regarding your individual
+                health concerns.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <%- include('../partials/footer') %>
+
+
+</body>

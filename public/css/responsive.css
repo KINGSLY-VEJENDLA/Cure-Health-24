@@ -1,0 +1,1025 @@
+@media (max-width: 900px) {
+
+    .nav-menu,
+    .nav-actions {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        padding: 70px 0 30px;
+        text-align: center;
+    }
+
+    .hero h1,
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-search {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-image {
+        min-height: 450px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .nav-container {
+        min-height: 68px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+        letter-spacing: -1px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hero-search {
+        display: none;
+    }
+
+    .hero-image img {
+        height: 390px;
+        border-radius: 28px 28px 0 0;
+    }
+
+    .hero-image::before {
+        width: 320px;
+        height: 320px;
+    }
+
+    .hero-floating-card {
+        left: 5px;
+        bottom: 25px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .specialties-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .conditions-container {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .conditions-image {
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-large {
+        grid-column: span 2;
+        grid-row: auto;
+    }
+
+    .testimonial-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-card {
+        min-width: 430px;
+    }
+
+    .partners-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cta-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .section {
+        padding: 65px 0;
+    }
+
+    .specialties-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .conditions-image img {
+        height: 350px;
+    }
+
+    .conditions-content h2 {
+        font-size: 30px;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-large {
+        grid-column: auto;
+        min-height: 350px;
+    }
+
+    .testimonial-card {
+        min-width: 100%;
+
+        flex-direction: column;
+    }
+
+    .patient-image {
+        width: 100%;
+        height: 220px;
+    }
+
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cta-content h2 {
+        font-size: 28px;
+    }
+
+    .cta-actions {
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+    .cta-button {
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   CURE HEALTH 24 — MOBILE RESPONSIVE FIX
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------
+       GLOBAL MOBILE FIX
+    ----------------------------------------- */
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    /* -----------------------------------------
+       CONTAINERS
+    ----------------------------------------- */
+
+    .section-container,
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* -----------------------------------------
+       SECTION HEADINGS
+    ----------------------------------------- */
+
+    .section-heading {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    .section-heading p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+
+    /* =================================================
+       OUR VALUES
+       ================================================= */
+
+    .values-grid,
+    .our-values-grid,
+    .values-cards,
+    .values-list {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+    }
+
+    .value-card,
+    .values-card {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    .value-card h3,
+    .values-card h3 {
+        font-size: 22px;
+        line-height: 1.25;
+    }
+
+    .value-card p,
+    .values-card p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+
+    /* =================================================
+       SPECIALTIES
+       ================================================= */
+
+    .specialties-grid,
+    .specialty-grid,
+    .specialties-list {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr !important;
+        gap: 14px;
+    }
+
+    .specialty-card {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+
+    /* =================================================
+       PERSONALIZED CARE / IMAGE SECTION
+       ================================================= */
+
+    .personalized-care,
+    .personalized-care-section,
+    .care-highlight {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .personalized-care .container,
+    .personalized-care-section .container,
+    .care-highlight .container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .personalized-care-content,
+    .personalized-care-image,
+    .care-highlight-image {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .personalized-care img,
+    .personalized-care-image img,
+    .care-highlight img,
+    .care-highlight-image img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+        object-fit: cover;
+    }
+
+
+    /* -----------------------------------------
+       TWO COLUMN SECTIONS → ONE COLUMN
+    ----------------------------------------- */
+
+    .two-column,
+    .two-column-layout,
+    .content-grid,
+    .care-grid,
+    .split-section {
+        grid-template-columns: 1fr !important;
+    }
+
+
+    /* -----------------------------------------
+       GENERAL GRIDS
+    ----------------------------------------- */
+
+    .grid-2,
+    .grid-3,
+    .grid-4,
+    .grid-5 {
+        grid-template-columns: 1fr !important;
+    }
+
+
+    /* -----------------------------------------
+       IMAGES
+    ----------------------------------------- */
+
+    img {
+        max-width: 100%;
+    }
+
+
+    /* -----------------------------------------
+       TEXT
+    ----------------------------------------- */
+
+    h1 {
+        font-size: 34px;
+        line-height: 1.15;
+    }
+
+    h2 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    h3 {
+        font-size: 21px;
+        line-height: 1.3;
+    }
+
+
+    /* -----------------------------------------
+       LINKS / BUTTONS
+    ----------------------------------------- */
+
+    .btn,
+    .button {
+        max-width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .section-container,
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+
+
+    /* Values */
+
+    .value-card,
+    .values-card {
+        padding: 24px 20px !important;
+        border-radius: 18px;
+    }
+
+
+    /* Specialties */
+
+    .specialty-card {
+        padding: 18px !important;
+    }
+
+
+    .specialty-card h3 {
+        font-size: 18px;
+    }
+
+
+    .specialty-card p {
+        font-size: 13px;
+    }
+
+
+    /* Personalized care */
+
+    .personalized-care img,
+    .personalized-care-image img,
+    .care-highlight img,
+    .care-highlight-image img {
+        border-radius: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   CURE HEALTH 24
+   MOBILE RESPONSIVE FIX
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------
+       GLOBAL
+    ----------------------------------------- */
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+
+    /* -----------------------------------------
+       COMMON CONTAINER
+    ----------------------------------------- */
+
+    .section-container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+
+    /* =================================================
+       SECTION HEADINGS
+       ================================================= */
+
+    .section-heading {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    .section-heading p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+
+    /* =================================================
+       MEDICAL SPECIALTIES
+       ================================================= */
+
+    .specialties {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .specialties .section-container {
+        width: 100%;
+    }
+
+    .specialties-grid {
+        width: 100% !important;
+
+        display: grid !important;
+
+        grid-template-columns: 1fr !important;
+
+        gap: 14px !important;
+    }
+
+    .specialty-card {
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        min-width: 0 !important;
+
+        display: grid !important;
+
+        grid-template-columns: 55px minmax(0, 1fr) 25px !important;
+
+        align-items: center;
+
+        gap: 14px;
+
+        padding: 18px !important;
+
+        min-height: 90px;
+
+        overflow: hidden;
+    }
+
+    .specialty-card > div {
+        min-width: 0;
+    }
+
+    .specialty-card h3 {
+        font-size: 18px;
+
+        line-height: 1.25;
+
+        margin: 0 0 4px;
+    }
+
+    .specialty-card p {
+        font-size: 13px;
+
+        line-height: 1.4;
+
+        margin: 0;
+
+        overflow-wrap: break-word;
+    }
+
+    .specialty-card > span {
+        text-align: right;
+    }
+
+    .specialty-icon {
+        flex-shrink: 0;
+    }
+
+
+    /* =================================================
+       DISEASES & CONDITIONS / HEALTH LIBRARY
+       ================================================= */
+
+    .conditions {
+        width: 100%;
+
+        overflow: hidden;
+    }
+
+    .conditions-container {
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        gap: 35px !important;
+
+        padding-left: 18px;
+
+        padding-right: 18px;
+    }
+
+
+    /* -----------------------------------------
+       IMAGE
+    ----------------------------------------- */
+
+    .conditions-image {
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        min-width: 0 !important;
+
+        height: auto !important;
+
+        position: relative;
+
+        overflow: hidden;
+
+        border-radius: 20px;
+    }
+
+    .conditions-image img {
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        height: auto !important;
+
+        min-height: 0 !important;
+
+        display: block;
+
+        object-fit: cover;
+    }
+
+    .image-caption {
+        left: 15px !important;
+
+        right: 15px !important;
+
+        bottom: 15px !important;
+
+        width: auto !important;
+
+        max-width: calc(100% - 30px);
+    }
+
+
+    /* -----------------------------------------
+       SEARCH CONTENT
+    ----------------------------------------- */
+
+    .conditions-content {
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        min-width: 0 !important;
+    }
+
+    .conditions-content h2 {
+        font-size: 29px;
+
+        line-height: 1.2;
+
+        overflow-wrap: break-word;
+    }
+
+    .conditions-content p {
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+
+    /* =================================================
+       A-Z ALPHABET
+       ================================================= */
+
+    .alphabet {
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(7, minmax(0, 1fr)) !important;
+
+        gap: 8px !important;
+    }
+
+    .alphabet button {
+        width: 100% !important;
+
+        min-width: 0 !important;
+
+        aspect-ratio: 1 / 1;
+
+        padding: 0 !important;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        border-radius: 50%;
+
+        font-size: 12px;
+    }
+
+
+    /* =================================================
+       HEALTH LIBRARY SEARCH
+       ================================================= */
+
+    .library-search {
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        min-width: 0 !important;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+        overflow: hidden;
+    }
+
+    .library-search span {
+        flex-shrink: 0;
+    }
+
+    .library-search input {
+        width: 100% !important;
+
+        min-width: 0 !important;
+
+        flex: 1;
+    }
+
+    .library-search button {
+        flex-shrink: 0;
+
+        white-space: nowrap;
+    }
+
+
+    /* =================================================
+       SEARCH RESULTS
+       ================================================= */
+
+    .health-search-results {
+        width: 100%;
+
+        max-width: 100%;
+
+        overflow: hidden;
+    }
+
+    .search-result-card {
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        min-width: 0 !important;
+    }
+
+    .search-result-content {
+        min-width: 0;
+
+        overflow-wrap: break-word;
+    }
+
+    .search-result-content h3,
+    .search-result-content p {
+        overflow-wrap: break-word;
+    }
+
+
+    /* =================================================
+       WHY CURE HEALTH 24 — 01 TO 05
+       ================================================= */
+
+    .why-us {
+        width: 100%;
+
+        overflow: hidden;
+    }
+
+    .why-grid {
+        width: 100% !important;
+
+        display: grid !important;
+
+        grid-template-columns: 1fr !important;
+
+        gap: 16px !important;
+    }
+
+
+    /* ALL WHY CARDS */
+
+    .why-card {
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        min-width: 0 !important;
+
+        min-height: 0 !important;
+
+        height: auto !important;
+
+        padding: 28px 24px !important;
+
+        border-radius: 20px !important;
+
+        overflow: hidden;
+    }
+
+
+    /* FIRST LARGE CARD */
+
+    .why-card.why-large {
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        min-height: 0 !important;
+
+        height: auto !important;
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        gap: 20px;
+    }
+
+    .why-content {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+
+    /* WHY IMAGE / VISUAL */
+
+    .why-visual {
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        min-width: 0 !important;
+
+        height: 180px !important;
+
+        border-radius: 16px;
+
+        overflow: hidden;
+    }
+
+
+    /* NUMBER */
+
+    .why-number {
+        display: block;
+
+        margin-bottom: 15px;
+    }
+
+
+    /* TITLES */
+
+    .why-card h3 {
+        font-size: 23px !important;
+
+        line-height: 1.25 !important;
+
+        max-width: 100% !important;
+
+        overflow-wrap: break-word;
+
+        word-break: normal;
+
+        margin-top: 0;
+    }
+
+
+    /* DESCRIPTION */
+
+    .why-card p {
+        font-size: 14px !important;
+
+        line-height: 1.7 !important;
+
+        max-width: 100% !important;
+
+        overflow-wrap: break-word;
+
+        margin-bottom: 0;
+    }
+
+
+    /* =================================================
+       GENERAL GRID SAFETY
+       ================================================= */
+
+    .why-grid *,
+    .specialties-grid *,
+    .conditions-container * {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE — 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .section-container {
+        padding-left: 15px;
+
+        padding-right: 15px;
+    }
+
+
+    /* SPECIALTIES */
+
+    .specialty-card {
+        grid-template-columns:
+            48px minmax(0, 1fr) 20px !important;
+
+        gap: 12px;
+
+        padding: 16px !important;
+    }
+
+    .specialty-icon {
+        width: 48px;
+
+        height: 48px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+    .specialty-card h3 {
+        font-size: 17px;
+    }
+
+    .specialty-card p {
+        font-size: 12px;
+    }
+
+
+    /* A-Z */
+
+    .alphabet {
+        grid-template-columns:
+            repeat(6, minmax(0, 1fr)) !important;
+
+        gap: 7px !important;
+    }
+
+    .alphabet button {
+        font-size: 11px;
+    }
+
+
+    /* SEARCH */
+
+    .library-search {
+        gap: 6px;
+    }
+
+    .library-search button {
+        padding-left: 12px;
+
+        padding-right: 12px;
+
+        font-size: 12px;
+    }
+
+
+    /* WHY */
+
+    .why-card {
+        padding: 24px 20px !important;
+    }
+
+    .why-card h3 {
+        font-size: 21px !important;
+    }
+
+    .why-card p {
+        font-size: 13px !important;
+    }
+
+}

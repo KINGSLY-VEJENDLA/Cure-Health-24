@@ -1,0 +1,298 @@
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+
+    background: #ffffff;
+    border-bottom: 1px solid #edf3f4;
+}
+
+.nav-container {
+    width: min(1180px, calc(100% - 40px));
+    min-height: 78px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    text-decoration: none;
+}
+
+.logo img {
+    display: block;
+
+    width: 230px;
+    height: 70px;
+
+    object-fit: contain;
+}
+
+
+/* =====================================================
+   DESKTOP MENU
+===================================================== */
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+
+    margin-left: auto;
+}
+
+.nav-menu a {
+    color: #365b62;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition: 0.2s ease;
+}
+
+.nav-menu a:hover {
+    color: #0ba2b2;
+}
+
+
+/* =====================================================
+   DESKTOP ACTIONS
+===================================================== */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+.language-btn {
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid #d9e8eb;
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #396269;
+
+    cursor: pointer;
+}
+
+.nav-appointment {
+    padding: 11px 18px;
+
+    border-radius: 25px;
+
+    background: #f2c51d;
+
+    color: #173d43;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+/* =========================================================
+   MOBILE MENU BUTTON - FINAL
+========================================================= */
+
+.mobile-menu-btn {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+    margin: 0;
+
+    border: 0 !important;
+    outline: none;
+
+    background: transparent !important;
+    box-shadow: none !important;
+
+    border-radius: 0 !important;
+
+    cursor: pointer;
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    z-index: 10001;
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+
+/* Hamburger lines */
+
+.mobile-menu-btn::before,
+.mobile-menu-btn::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    width: 24px;
+    height: 2px;
+
+    background: #075763;
+
+    border-radius: 10px;
+
+    transform: translateX(-50%);
+
+    transition: 0.25s ease;
+}
+
+
+/* Top line */
+
+.mobile-menu-btn::before {
+    top: 17px;
+
+    box-shadow:
+        0 8px 0 #075763;
+}
+
+
+/* Bottom line is created by box-shadow */
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 1111px) {
+
+      /* Hide desktop buttons */
+    .nav-actions {
+        display: none !important;
+    }
+
+    .mobile-menu-btn {
+        display: block !important;
+    }
+
+}
+
+
+/* =========================================================
+   OPEN → X
+========================================================= */
+
+.mobile-menu-btn.active::before {
+
+    top: 21px;
+
+    transform:
+        translateX(-50%)
+        rotate(45deg);
+
+    box-shadow: none;
+}
+
+
+.mobile-menu-btn.active::after {
+
+    top: 21px;
+
+    transform:
+        translateX(-50%)
+        rotate(-45deg);
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .nav-container {
+        min-height: 64px;
+
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .logo img {
+        max-width: 150px;
+        max-height: 44px;
+    }
+
+    .mobile-menu-btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    .nav-menu {
+        top: 64px;
+    }
+
+}
+
+@media (max-width: 1111px) {
+
+    .nav-menu {
+        display: none;
+
+        position: absolute;
+
+        top: 68px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 15px 20px;
+
+        box-sizing: border-box;
+
+        flex-direction: column;
+
+        background: #ffffff;
+
+        z-index: 9998;
+
+        box-shadow: 0 15px 30px rgba(6, 77, 89, 0.12);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+}

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Find a Doctor | Cure Health 24</title>
+        <link rel="icon" type="image/png" href="/images/logo/favicon.png">
+
+
+    <meta
+        name="description"
+        content="Find doctors and healthcare professionals by specialty and location with Cure Health 24."
+    >
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/doctors.css">
+    <link rel="stylesheet" href="/css/cta.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/hero.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <%- include('../partials/navbar') %>
+
+
+    <main>
+
+
+        <!-- =================================
+             DOCTOR HERO
+        ================================== -->
+
+        <section class="doctor-hero">
+
+            <div class="doctor-hero-container">
+
+                <div class="doctor-hero-content">
+
+                    <span class="section-label hero-label">
+                        Find a Doctor
+                    </span>
+
+                    <h1>
+                        Find the Right
+                        <span>Care for You.</span>
+                    </h1>
+
+                    <p>
+                        Search for healthcare professionals by
+                        specialty, location and area of care.
+                    </p>
+
+                </div>
+
+
+                <div class="doctor-hero-image">
+
+                    <img
+                        src="/images/doctors/doctors-hero.jpg"
+                        alt="Healthcare professionals"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             SEARCH
+        ================================== -->
+
+        <section class="doctor-search-section">
+
+            <div class="section-container">
+
+                <div class="doctor-search-box">
+
+
+                    <div class="search-field">
+
+                        <label for="doctorSearch">
+                            Search Doctor
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>⌕</span>
+
+                            <input
+                                type="text"
+                                id="doctorSearch"
+                                placeholder="Doctor name or specialty"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="search-field">
+
+                        <label for="specialtyFilter">
+                            Specialty
+                        </label>
+
+                        <select id="specialtyFilter">
+
+                            <option value="all">
+                                All Specialties
+                            </option>
+
+                            <option value="Cardiology">
+                                Cardiology
+                            </option>
+
+                            <option value="Dentistry">
+                                Dentistry
+                            </option>
+
+                            <option value="Gastroenterology">
+                                Gastroenterology
+                            </option>
+
+                            <option value="Neurology">
+                                Neurology
+                            </option>
+
+                            <option value="Orthopedics">
+                                Orthopedics
+                            </option>
+
+                            <option value="Pediatrics">
+                                Pediatrics
+                            </option>
+
+                            <option value="Gynecology">
+                                Gynecology
+                            </option>
+
+                            <option value="Dermatology">
+                                Dermatology
+                            </option>
+
+                            <option value="General Medicine">
+                                General Medicine
+                            </option>
+
+                            <option value="Urology">
+                                Urology
+                            </option>
+
+                            <option value="ENT">
+                                ENT
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="search-field">
+
+                        <label for="locationFilter">
+                            Location
+                        </label>
+
+                        <select id="locationFilter">
+
+                            <option value="all">
+                                All Locations
+                            </option>
+
+                            <option value="Hyderabad">
+                                Hyderabad
+                            </option>
+
+                            <option value="Bengaluru">
+                                Bengaluru
+                            </option>
+
+                            <option value="Chennai">
+                                Chennai
+                            </option>
+
+                            <option value="Mumbai">
+                                Mumbai
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="doctorSearchButton"
+                        class="doctor-search-button"
+                    >
+                        Search
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             DOCTORS
+        ================================== -->
+
+        <section class="doctors-section">
+
+            <div class="section-container">
+
+
+                <div class="doctors-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            Healthcare Professionals
+                        </span>
+
+                        <h2>
+                            Our Doctors
+                        </h2>
+
+                    </div>
+
+
+                    <span
+                        id="doctorCount"
+                        class="doctor-count"
+                    >
+                        Doctors available
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="doctorsGrid"
+                    class="doctors-grid"
+                >
+
+                    <!-- Doctors loaded by JavaScript -->
+
+                </div>
+
+
+                <div
+                    id="noDoctors"
+                    class="no-doctors"
+                    style="display: none;"
+                >
+
+                    <div class="no-doctors-icon">
+                        ⌕
+                    </div>
+
+                    <h3>
+                        No doctors found
+                    </h3>
+
+                    <p>
+                        Try changing your search or filter options.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="clearFilters"
+                    >
+                        Clear Filters
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             WHY CHOOSE
+        ================================== -->
+
+        <section class="doctor-benefits">
+
+            <div class="section-container">
+
+
+                <div class="section-heading centered">
+
+                    <span class="section-label">
+                        Why Cure Health 24
+                    </span>
+
+                    <h2>
+                        Healthcare Made Easier
+                    </h2>
+
+                    <p>
+                        We help make the process of finding
+                        healthcare professionals simpler.
+                    </p>
+
+                </div>
+
+
+                <div class="doctor-benefits-grid">
+
+
+                    <div class="doctor-benefit-card">
+
+                        <div class="benefit-icon">
+                            ✓
+                        </div>
+
+                        <h3>
+                            Verified Professionals
+                        </h3>
+
+                        <p>
+                            Discover healthcare professionals
+                            across a range of medical specialties.
+                        </p>
+
+                    </div>
+
+
+                    <div class="doctor-benefit-card">
+
+                        <div class="benefit-icon">
+                            +
+                        </div>
+
+                        <h3>
+                            Multiple Specialties
+                        </h3>
+
+                        <p>
+                            Explore doctors across different
+                            areas of healthcare.
+                        </p>
+
+                    </div>
+
+
+                    <div class="doctor-benefit-card">
+
+                        <div class="benefit-icon">
+                            →
+                        </div>
+
+                        <h3>
+                            Easy Booking
+                        </h3>
+
+                        <p>
+                            Move from finding a doctor to requesting
+                            an appointment with ease.
+                        </p>
+
+                    </div>
+
+
+                    <div class="doctor-benefit-card">
+
+                        <div class="benefit-icon">
+                            ♥
+                        </div>
+
+                        <h3>
+                            Patient Focused
+                        </h3>
+
+                        <p>
+                            Designed to make your healthcare journey
+                            simple and convenient.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             CTA
+        ================================== -->
+
+        <section class="health-cta">
+
+            <div class="cta-container">
+
+                <div class="cta-content">
+
+                    <span>
+                        Cure Health 24
+                    </span>
+
+                    <h2>
+                        Found the Right Doctor?
+                    </h2>
+
+                    <p>
+                        Take the next step and request your
+                        appointment today.
+                    </p>
+
+                </div>
+
+
+                <div class="cta-actions">
+
+                    <a
+                        href="/medical-services"
+                        class="cta-button light"
+                    >
+                        Explore Services
+                    </a>
+
+                    <a
+                        href="/appointment"
+                        class="cta-button yellow"
+                    >
+                        Book Appointment
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <%- include('../partials/footer') %>
+
+
+    <script src="/js/doctors.js"></script>
+    <script src="/js/navbar.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,488 @@
+/* =========================
+   ABOUT HERO
+========================= */
+
+.about-hero {
+    padding: 80px 0;
+
+    background:
+        radial-gradient(
+            circle at 75% 20%,
+            #d9f6f9,
+            #f7fcfc 65%
+        );
+}
+
+.about-hero-container {
+    width: min(1100px, 92%);
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+    gap: 70px;
+}
+
+.about-hero-content h1 {
+    margin-top: 10px;
+
+    color: #064d59;
+
+    font-size: clamp(42px, 5vw, 62px);
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+}
+
+.about-hero-content h1 span {
+    display: block;
+    color: #0ba2b2;
+}
+
+.about-hero-content p {
+    max-width: 500px;
+
+    margin: 25px 0;
+
+    color: #687f84;
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.about-btn {
+    display: inline-flex;
+
+    padding: 13px 22px;
+
+    border-radius: 25px;
+
+    background: #075763;
+    color: white;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.about-hero-image img {
+    width: 100%;
+    height: 450px;
+
+    object-fit: cover;
+
+    border-radius: 30px;
+}
+
+.section-label {
+     display: inline-block;
+
+    margin-bottom: 18px;
+    padding: 7px 13px;
+
+    border-radius: 20px;
+
+    background: #d9f3f5;
+    color: #087485;
+
+    font-size: 12px;
+    font-weight: 700;
+}    
+
+
+/* =========================
+   WHO WE ARE
+========================= */
+
+.who-we-are {
+    padding: 100px 0;
+    background: white;
+}
+
+.about-container {
+    width: min(1100px, 92%);
+    margin: auto;
+}
+
+.who-we-are .about-container {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.who-image img {
+    width: 100%;
+    height: 450px;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+}
+
+.who-content h2 {
+    color: #064d59;
+
+    font-size: 40px;
+    line-height: 1.15;
+}
+
+.who-content > p {
+    margin-top: 18px;
+
+    color: #6d8286;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.who-points {
+    margin-top: 25px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+.who-points div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.who-points span {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e2f7f8;
+    color: #079aaa;
+
+    font-size: 12px;
+}
+
+.who-points strong {
+    color: #365c63;
+    font-size: 12px;
+}
+
+
+/* =========================
+   MISSION / VISION
+========================= */
+
+.mission-vision {
+    padding: 90px 0;
+
+    background: #f4fbfc;
+}
+
+.mission-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.mission-card {
+    padding: 35px;
+
+    border-radius: 20px;
+
+    background: white;
+
+    border: 1px solid #e1eff1;
+
+    box-shadow:
+        0 10px 30px rgba(10, 80, 90, .05);
+}
+
+.vision-card {
+    background: #075763;
+    color: white;
+}
+
+.mission-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 22px;
+
+    border-radius: 12px;
+
+    background: #e3f8fa;
+    color: #079aaa;
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.mission-card h3 {
+    color: #15515a;
+
+    font-size: 23px;
+}
+
+.vision-card h3 {
+    color: white;
+}
+
+.mission-card p {
+    margin-top: 12px;
+
+    color: #71868a;
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.vision-card p {
+    color: #b9d8dc;
+}
+
+
+/* =========================
+   VALUES
+========================= */
+
+.values {
+    padding: 100px 0;
+    background: white;
+}
+
+.values-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+.value-card {
+    padding: 28px;
+
+    min-height: 230px;
+
+    border-radius: 18px;
+
+    background: #f5fbfc;
+
+    border: 1px solid #e3eff1;
+}
+
+.value-number {
+    color: #0a9aaa;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.value-card h3 {
+    margin-top: 40px;
+
+    color: #15515a;
+
+    font-size: 18px;
+}
+
+.value-card p {
+    margin-top: 12px;
+
+    color: #74888c;
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   APPROACH
+========================= */
+
+.approach {
+    padding: 100px 0;
+
+    background: #f4fbfc;
+}
+
+.approach .about-container {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.approach-content h2 {
+    color: #064d59;
+
+    font-size: 40px;
+}
+
+.approach-content > p {
+    margin-top: 15px;
+
+    color: #71868a;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.approach-steps {
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.approach-step {
+    display: flex;
+    gap: 18px;
+}
+
+.approach-step > span {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #075763;
+    color: white;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.approach-step h3 {
+    color: #15515a;
+
+    font-size: 14px;
+}
+
+.approach-step p {
+    margin-top: 5px;
+
+    color: #7b8e91;
+
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.approach-image img {
+    width: 100%;
+    height: 450px;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 900px) {
+
+    .about-hero-container,
+    .who-we-are .about-container,
+    .approach .about-container {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .about-hero-content {
+        text-align: center;
+    }
+
+    .about-hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about-hero-image {
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .who-image {
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .approach-image {
+        max-width: 600px;
+        margin: auto;
+        order: -1;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .about-hero {
+        padding: 60px 0;
+    }
+
+    .about-hero-content h1 {
+        font-size: 42px;
+    }
+
+    .about-hero-image img,
+    .who-image img,
+    .approach-image img {
+        height: 350px;
+    }
+
+    .who-content h2,
+    .approach-content h2 {
+        font-size: 30px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .value-card {
+        min-height: auto;
+    }
+}

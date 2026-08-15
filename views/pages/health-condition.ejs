@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title><%= condition.title %> | Cure Health 24</title>
+        <link rel="icon" type="image/png" href="/images/logo/favicon.png">
+
+
+    <meta
+        name="description"
+        content="<%= condition.shortDescription %>"
+    >
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/health-condition.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/hero.css">
+
+</head>
+
+<body>
+
+    <%- include('../partials/navbar') %>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="condition-detail-hero">
+
+            <div class="section-container">
+
+                <div class="condition-breadcrumb">
+
+                    <a href="/health-library">
+                        Health Library
+                    </a>
+
+                    <span> / </span>
+
+                    <a href="/health-library/conditions">
+                        Conditions
+                    </a>
+
+                    <span> / </span>
+
+                    <span>
+                        <%= condition.title %>
+                    </span>
+
+                </div>
+
+
+                <div class="condition-hero-content">
+
+                    <div class="condition-hero-text">
+
+                        <span class="section-label">
+                            <%= condition.category %>
+                        </span>
+
+                        <h1>
+                            <%= condition.title %>
+                        </h1>
+
+                        <p>
+                            <%= condition.shortDescription %>
+                        </p>
+
+                        <div class="condition-hero-buttons">
+
+                            <a
+                                href="/appointment"
+                                class="condition-primary-btn"
+                            >
+                                Book an Appointment
+                            </a>
+
+                            <a
+                                href="/find-a-doctor"
+                                class="condition-secondary-btn"
+                            >
+                                Find a Doctor
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="condition-hero-card">
+
+                        <div class="condition-large-icon">
+                            +
+                        </div>
+
+                        <span>
+                            Health Information
+                        </span>
+
+                        <strong>
+                            General Educational Guide
+                        </strong>
+
+                        <p>
+                            Learn about symptoms, risk factors,
+                            diagnosis, treatment and prevention.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK INFORMATION -->
+
+        <section class="condition-overview">
+
+            <div class="section-container">
+
+                <div class="condition-overview-grid">
+
+                    <div class="overview-item">
+
+                        <span>
+                            Common Symptoms
+                        </span>
+
+                        <strong>
+                            Learn the warning signs
+                        </strong>
+
+                    </div>
+
+                    <div class="overview-item">
+
+                        <span>
+                            Risk Factors
+                        </span>
+
+                        <strong>
+                            Understand what may increase risk
+                        </strong>
+
+                    </div>
+
+                    <div class="overview-item">
+
+                        <span>
+                            Diagnosis
+                        </span>
+
+                        <strong>
+                            How doctors evaluate the condition
+                        </strong>
+
+                    </div>
+
+                    <div class="overview-item">
+
+                        <span>
+                            Treatment
+                        </span>
+
+                        <strong>
+                            General approaches to care
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MAIN CONTENT -->
+
+        <section class="condition-content-section">
+
+            <div class="section-container">
+
+                <div class="condition-content-layout">
+
+
+                    <!-- CONTENT -->
+
+                    <article class="condition-content">
+
+
+                        <section id="overview">
+
+                            <span class="content-label">
+                                Overview
+                            </span>
+
+                            <h2>
+                                What is <%= condition.title %>?
+                            </h2>
+
+                            <p>
+                                <%= condition.overview %>
+                            </p>
+
+                        </section>
+
+
+                        <section id="symptoms">
+
+                            <span class="content-label">
+                                Symptoms
+                            </span>
+
+                            <h2>
+                                Common Symptoms
+                            </h2>
+
+                            <p>
+                                Symptoms can vary from person to
+                                person. Some people may have mild
+                                symptoms, while others may experience
+                                more noticeable changes.
+                            </p>
+
+                            <ul>
+
+                                <% condition.symptoms.forEach(function(symptom) { %>
+
+                                    <li>
+                                        <%= symptom %>
+                                    </li>
+
+                                <% }); %>
+
+                            </ul>
+
+                        </section>
+
+
+                        <section id="risk-factors">
+
+                            <span class="content-label">
+                                Risk Factors
+                            </span>
+
+                            <h2>
+                                Risk Factors
+                            </h2>
+
+                            <p>
+                                Several factors may contribute to
+                                the development or progression of
+                                <%= condition.title.toLowerCase() %>.
+                            </p>
+
+                            <ul>
+
+                                <% condition.riskFactors.forEach(function(factor) { %>
+
+                                    <li>
+                                        <%= factor %>
+                                    </li>
+
+                                <% }); %>
+
+                            </ul>
+
+                        </section>
+
+
+                        <section id="diagnosis">
+
+                            <span class="content-label">
+                                Diagnosis
+                            </span>
+
+                            <h2>
+                                How Is It Diagnosed?
+                            </h2>
+
+                            <p>
+                                A healthcare professional may review
+                                your medical history, symptoms and
+                                relevant examination or laboratory
+                                results when evaluating this condition.
+                            </p>
+
+                        </section>
+
+
+                        <section id="treatment">
+
+                            <span class="content-label">
+                                Treatment & Management
+                            </span>
+
+                            <h2>
+                                Treatment and Management
+                            </h2>
+
+                            <p>
+                                Treatment depends on the individual's
+                                condition, medical history and needs.
+                                A qualified healthcare professional
+                                can recommend an appropriate care plan.
+                            </p>
+
+                            <ul>
+
+                                <% condition.treatment.forEach(function(item) { %>
+
+                                    <li>
+                                        <%= item %>
+                                    </li>
+
+                                <% }); %>
+
+                            </ul>
+
+                        </section>
+
+
+                        <section id="prevention">
+
+                            <span class="content-label">
+                                Prevention
+                            </span>
+
+                            <h2>
+                                Prevention & Healthy Living
+                            </h2>
+
+                            <p>
+                                Depending on the condition, healthy
+                                lifestyle choices and regular medical
+                                care may help reduce health risks.
+                            </p>
+
+                            <ul>
+
+                                <% condition.prevention.forEach(function(item) { %>
+
+                                    <li>
+                                        <%= item %>
+                                    </li>
+
+                                <% }); %>
+
+                            </ul>
+
+                        </section>
+
+
+                        <!-- DISCLAIMER -->
+
+                        <div class="condition-disclaimer">
+
+                            <strong>
+                                Medical Disclaimer
+                            </strong>
+
+                            <p>
+                                This information is provided for
+                                general educational purposes only.
+                                It does not replace professional
+                                medical advice, diagnosis or treatment.
+                                Always consult a qualified healthcare
+                                professional regarding your individual
+                                health concerns.
+                            </p>
+
+                        </div>
+
+
+                    </article>
+
+
+                    <!-- SIDEBAR -->
+
+                    <aside class="condition-sidebar">
+
+                        <div class="sidebar-card">
+
+                            <h3>
+                                On This Page
+                            </h3>
+
+                            <a href="#overview">
+                                Overview
+                            </a>
+
+                            <a href="#symptoms">
+                                Symptoms
+                            </a>
+
+                            <a href="#risk-factors">
+                                Risk Factors
+                            </a>
+
+                            <a href="#diagnosis">
+                                Diagnosis
+                            </a>
+
+                            <a href="#treatment">
+                                Treatment
+                            </a>
+
+                            <a href="#prevention">
+                                Prevention
+                            </a>
+
+                        </div>
+
+
+                        <div class="sidebar-cta">
+
+                            <span>
+                                Need Medical Advice?
+                            </span>
+
+                            <h3>
+                                Talk to a Doctor
+                            </h3>
+
+                            <p>
+                                Get professional guidance based
+                                on your individual healthcare needs.
+                            </p>
+
+                            <a href="/appointment">
+                                Book Appointment →
+                            </a>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RELATED CARE -->
+
+        <section class="related-care">
+
+            <div class="section-container">
+
+                <div class="related-care-box">
+
+                    <div>
+
+                        <span class="section-label">
+                            Related Care
+                        </span>
+
+                        <h2>
+                            Find the Right Specialist
+                        </h2>
+
+                        <p>
+                            Our healthcare professionals can help
+                            assess your symptoms and guide you toward
+                            appropriate care.
+                        </p>
+
+                    </div>
+
+                    <div class="related-buttons">
+
+                        <a
+                            href="/find-a-doctor"
+                            class="related-light"
+                        >
+                            Find a Doctor
+                        </a>
+
+                        <a
+                            href="/appointment"
+                            class="related-outline"
+                        >
+                            Book Appointment
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <%- include('../partials/footer') %>
+    <script src="/js/navbar.js"></script>
+
+</body>
+
+</html>
