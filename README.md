@@ -1,2 +1,28 @@
-# curehealth24
-CURE HEALTH 24 is a patient-focused healthcare provider committed to delivering accessible, reliable, and quality medical care. We connect patients with professional healthcare services and personalized support across a range of medical specialties, helping every patient take a confident step toward better health.
+# CURE HEALTH
+
+CURE HEALTH is a patient-focused healthcare website designed to provide
+accessible and reliable healthcare information and services.
+
+## Features
+
+- Healthcare services
+- Medical specialties
+- Health Library
+- Doctor information
+- Appointment requests
+- Patient support
+- Responsive design
+
+## Technologies
+
+- HTML5
+- CSS3
+- JavaScript
+- Node.js
+- Express.js
+- EJS
+
+## Project
+
+CURE HEALTH provides a simple and user-friendly platform for patients
+to explore healthcare services and request appointments.
