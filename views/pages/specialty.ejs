@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="/css/cta.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/hero.css">
 
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
@@ -61,15 +62,15 @@
 
                     <a
                         href="/medical-services"
-                        class="back-link hero-label"
+                        class="hero-label "
                     >
                         ← All Medical Services
                     </a>
 
 
-                    <span class="hero-label">
+                    <!-- <span class="hero-label">
                         Medical Specialty
-                    </span>
+                    </span> -->
 
 
                     <h1>
@@ -89,14 +90,14 @@
 
                         <a
                             href="/appointment"
-                            class="service-btn primary"
+                            class="btn btn-secondary"
                         >
                             Book Appointment
                         </a>
 
                         <a
                             href="/find-a-doctor"
-                            class="service-btn secondary"
+                            class="btn btn-primary"
                         >
                             Find a Doctor
                         </a>
@@ -144,7 +145,7 @@
 
                     <div class="overview-content">
 
-                        <span class="section-label">
+                        <span class="hero-label">
                             About <%= specialty.name %>
                         </span>
 
@@ -367,12 +368,12 @@
 
                 <div class="cta-actions">
 
-                    <a
+                    <!-- <a
                         href="/find-a-doctor"
                         class="cta-button light"
                     >
                         Find a Doctor
-                    </a>
+                    </a> -->
 
 
                     <a
@@ -392,7 +393,7 @@
     </main>
 
 
-    <%- include('../partials/footer') %>
+    
     <script src="/js/navbar.js"></script>
 
 </body>

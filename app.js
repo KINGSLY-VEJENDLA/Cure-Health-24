@@ -5,8 +5,9 @@ const app = express();
 const PORT = 3000;
 require("dotenv").config();
 
-const nodemailer = require("nodemailer");
-const twilio = require("twilio");
+const { Resend } = require("resend");
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 
 // EJS
 app.set("view engine", "ejs");
@@ -1031,6 +1032,10 @@ app.get("/appointment", (req, res) => {
 });
 
 
+// =========================================================
+// APPOINTMENT
+// =========================================================
+
 app.post("/appointment", async (req, res) => {
 
     try {
@@ -1048,73 +1053,146 @@ app.post("/appointment", async (req, res) => {
         } = req.body;
 
 
-        // =========================================
-        // EMAIL
-        // =========================================
+        // =====================================================
+        // EMAIL CONTENT
+        // =====================================================
 
         const emailContent = `
 
-            <h2 style="color:#075763;">
-                New Appointment Request
-            </h2>
+            <div style="
+                font-family: Arial, sans-serif;
+                max-width: 650px;
+                margin: auto;
+                color: #365e64;
+            ">
 
-            <hr>
+                <div style="
+                    background: #075763;
+                    padding: 25px;
+                    text-align: center;
+                    border-radius: 12px 12px 0 0;
+                ">
 
-            <p>
-                <strong>Patient Name:</strong>
-                ${firstName} ${lastName}
-            </p>
+                    <h2 style="
+                        color: white;
+                        margin: 0;
+                    ">
+                        CURE HEALTH 24
+                    </h2>
 
-            <p>
-                <strong>Email:</strong>
-                ${email}
-            </p>
+                    <p style="
+                        color: #c4e2e5;
+                        margin: 8px 0 0;
+                    ">
+                        New Appointment Request
+                    </p>
 
-            <p>
-                <strong>Phone:</strong>
-                ${phone}
-            </p>
+                </div>
 
-            <p>
-                <strong>Specialty:</strong>
-                ${specialty}
-            </p>
 
-            <p>
-                <strong>Preferred Doctor:</strong>
-                ${doctor || "Any available doctor"}
-            </p>
+                <div style="
+                    padding: 30px;
+                    border: 1px solid #dcecef;
+                    border-top: none;
+                    border-radius: 0 0 12px 12px;
+                ">
 
-            <p>
-                <strong>Date:</strong>
-                ${date}
-            </p>
+                    <h3 style="
+                        color: #075763;
+                        margin-top: 0;
+                    ">
+                        Appointment Details
+                    </h3>
 
-            <p>
-                <strong>Time:</strong>
-                ${time}
-            </p>
 
-            <p>
-                <strong>Reason for Visit:</strong>
-                ${message || "Not provided"}
-            </p>
+                    <hr style="
+                        border: none;
+                        border-top: 1px solid #dcecef;
+                    ">
 
-            <hr>
 
-            <p>
-                Please contact the patient regarding this
-                appointment request.
-            </p>
+                    <p>
+                        <strong>Patient Name:</strong><br>
+                        ${firstName} ${lastName}
+                    </p>
+
+
+                    <p>
+                        <strong>Email:</strong><br>
+                        ${email}
+                    </p>
+
+
+                    <p>
+                        <strong>Phone:</strong><br>
+                        ${phone}
+                    </p>
+
+
+                    <p>
+                        <strong>Specialty:</strong><br>
+                        ${specialty}
+                    </p>
+
+
+                    <p>
+                        <strong>Preferred Doctor:</strong><br>
+                        ${doctor || "Any available doctor"}
+                    </p>
+
+
+                    <p>
+                        <strong>Preferred Date:</strong><br>
+                        ${date}
+                    </p>
+
+
+                    <p>
+                        <strong>Preferred Time:</strong><br>
+                        ${time}
+                    </p>
+
+
+                    <p>
+                        <strong>Reason for Visit:</strong><br>
+                        ${message || "Not provided"}
+                    </p>
+
+
+                    <hr style="
+                        border: none;
+                        border-top: 1px solid #dcecef;
+                        margin: 25px 0;
+                    ">
+
+
+                    <p style="
+                        color: #71868a;
+                        font-size: 13px;
+                        line-height: 1.6;
+                    ">
+                        Please contact the patient regarding this
+                        appointment request.
+                    </p>
+
+                </div>
+
+            </div>
 
         `;
 
 
-        await mailTransporter.sendMail({
+        // =====================================================
+        // SEND EMAIL USING RESEND
+        // =====================================================
 
-            from: process.env.EMAIL_USER,
+        const { data, error } = await resend.emails.send({
 
-            to: "info@carehealth24.com",
+            from: "CURE HEALTH 24 <info@curehealth24.com>",
+
+            to: [
+                "info@curehealth24.com"
+            ],
 
             subject:
                 `New Appointment - ${firstName} ${lastName}`,
@@ -1126,140 +1204,257 @@ app.post("/appointment", async (req, res) => {
         });
 
 
-        // =========================================
-        // SMS
-        // =========================================
+        // =====================================================
+        // RESEND ERROR
+        // =====================================================
 
-        const smsMessage = `
-New Cure Health 24 Appointment
+        if (error) {
 
-Patient: ${firstName} ${lastName}
-Phone: ${phone}
-Specialty: ${specialty}
-Doctor: ${doctor || "Any available"}
-Date: ${date}
-Time: ${time}
+            console.error("================================");
+            console.error("RESEND ERROR");
+            console.error("Message:", error.message);
+            console.error("================================");
 
-Please contact the patient.
-        `;
+            throw new Error(error.message);
+        }
 
 
-        // await twilioClient.messages.create({
+        // =====================================================
+        // SUCCESS LOG
+        // =====================================================
 
-        //     body: smsMessage,
+        console.log("================================");
+        console.log("APPOINTMENT EMAIL SENT");
+        console.log("Resend ID:", data.id);
+        console.log("Patient:", firstName, lastName);
+        console.log("Email:", email);
+        console.log("================================");
 
-        //     from: process.env.TWILIO_PHONE_NUMBER,
 
-        //     to: process.env.ADMIN_PHONE
-
-        // });
-
-
-        // =========================================
-        // SUCCESS
-        // =========================================
+        // =====================================================
+        // SUCCESS PAGE
+        // =====================================================
 
         res.send(`
 
-            <div style="
-                font-family: Arial;
-                text-align: center;
-                padding: 100px 20px;
-            ">
+            <!DOCTYPE html>
 
-                <h1 style="color:#075763;">
-                    Appointment Request Received
-                </h1>
+            <html lang="en">
 
-                <p>
-                    Thank you, ${firstName}.
-                    Our team will contact you shortly.
-                </p>
+            <head>
 
-                <a
-                    href="/"
-                    style="
-                        display:inline-block;
-                        margin-top:20px;
-                        padding:12px 22px;
-                        background:#075763;
-                        color:white;
-                        text-decoration:none;
-                        border-radius:8px;
-                    "
+                <meta charset="UTF-8">
+
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0"
                 >
-                    Back to Home
-                </a>
 
-            </div>
+                <title>
+                    Appointment Received | CURE HEALTH
+                </title>
+
+            </head>
+
+
+            <body>
+
+                <div style="
+                    font-family: Arial, sans-serif;
+                    text-align: center;
+                    padding: 100px 20px;
+                    background: #f7fcfc;
+                    min-height: 100vh;
+                    box-sizing: border-box;
+                ">
+
+                    <div style="
+                        max-width: 600px;
+                        margin: auto;
+                        background: white;
+                        padding: 50px 30px;
+                        border-radius: 20px;
+                        box-shadow:
+                            0 20px 50px
+                            rgba(5, 70, 80, .08);
+                    ">
+
+                        <div style="
+                            width: 60px;
+                            height: 60px;
+                            margin: 0 auto 20px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 50%;
+                            background: #e4f8fa;
+                            color: #075763;
+                            font-size: 30px;
+                        ">
+                            ✓
+                        </div>
+
+
+                        <h1 style="
+                            color: #075763;
+                            margin-bottom: 15px;
+                        ">
+                            Appointment Request Received
+                        </h1>
+
+
+                        <p style="
+                            color: #71868a;
+                            line-height: 1.7;
+                        ">
+                            Thank you, ${firstName}.
+                            Your appointment request has been
+                            successfully submitted.
+                        </p>
+
+
+                        <p style="
+                            color: #71868a;
+                            line-height: 1.7;
+                        ">
+                            Our team will contact you shortly
+                            to confirm your appointment.
+                        </p>
+
+
+                        <a
+                            href="/"
+                            style="
+                                display: inline-block;
+                                margin-top: 20px;
+                                padding: 13px 24px;
+                                background: #075763;
+                                color: white;
+                                text-decoration: none;
+                                border-radius: 9px;
+                                font-weight: 700;
+                                font-size: 13px;
+                            "
+                        >
+                            Back to Home
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </body>
+
+            </html>
 
         `);
 
 
     } catch (error) {
 
-    console.error("================================");
-    console.error("APPOINTMENT ERROR");
-    console.error("Message:", error.message);
-    console.error("Code:", error.code);
-    console.error("Response:", error.response);
-    console.error("================================");
+        // =====================================================
+        // GENERAL ERROR
+        // =====================================================
 
-    res.status(500).send(`
-
-        <div style="
-            font-family: Arial;
-            text-align: center;
-            padding: 100px 20px;
-        ">
-
-            <h1 style="color:#075763;">
-                Something Went Wrong
-            </h1>
-
-            <p>
-                We couldn't process your appointment request.
-            </p>
-
-            <a
-                href="/appointment"
-                style="
-                    display:inline-block;
-                    margin-top:20px;
-                    padding:12px 22px;
-                    background:#075763;
-                    color:white;
-                    text-decoration:none;
-                    border-radius:8px;
-                "
-            >
-                Try Again
-            </a>
-
-        </div>
-
-    `);
-
-}
-
-});
+        console.error("================================");
+        console.error("APPOINTMENT ERROR");
+        console.error("Message:", error.message);
+        console.error("================================");
 
 
-const mailTransporter = nodemailer.createTransport({
-    host: "smtp.hostinger.com",
-    port: 465,
-    secure: true,
+        res.status(500).send(`
 
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
+            <!DOCTYPE html>
+
+            <html lang="en">
+
+            <head>
+
+                <meta charset="UTF-8">
+
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0"
+                >
+
+                <title>
+                    Appointment Error | CURE HEALTH
+                </title>
+
+            </head>
+
+
+            <body>
+
+                <div style="
+                    font-family: Arial, sans-serif;
+                    text-align: center;
+                    padding: 100px 20px;
+                    background: #f7fcfc;
+                    min-height: 100vh;
+                    box-sizing: border-box;
+                ">
+
+                    <div style="
+                        max-width: 600px;
+                        margin: auto;
+                        background: white;
+                        padding: 50px 30px;
+                        border-radius: 20px;
+                        box-shadow:
+                            0 20px 50px
+                            rgba(5, 70, 80, .08);
+                    ">
+
+                        <h1 style="
+                            color: #075763;
+                        ">
+                            Something Went Wrong
+                        </h1>
+
+
+                        <p style="
+                            color: #71868a;
+                            line-height: 1.7;
+                        ">
+                            We couldn't process your appointment
+                            request.
+                        </p>
+
+
+                        <a
+                            href="/appointment"
+                            style="
+                                display: inline-block;
+                                margin-top: 20px;
+                                padding: 13px 24px;
+                                background: #075763;
+                                color: white;
+                                text-decoration: none;
+                                border-radius: 9px;
+                                font-weight: 700;
+                                font-size: 13px;
+                            "
+                        >
+                            Try Again
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </body>
+
+            </html>
+
+        `);
+
     }
+
 });
 
-// const twilioClient = twilio(
-//     process.env.TWILIO_ACCOUNT_SID,
-//     process.env.TWILIO_AUTH_TOKEN
-// );
+
+
 
 
 // ==============================

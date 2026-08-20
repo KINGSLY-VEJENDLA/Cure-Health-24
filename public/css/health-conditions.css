@@ -1,12 +1,11 @@
 .conditions-hero {
     padding: 90px 0;
-
     background:
         radial-gradient(
             circle at 85% 20%,
             #D9F5F7,
             #F7FCFC 65%
-        );
+        );  
 }
 
 .conditions-hero-content {

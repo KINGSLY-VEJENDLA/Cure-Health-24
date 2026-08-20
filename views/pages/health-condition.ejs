@@ -33,7 +33,7 @@
     <%- include('../partials/navbar') %>
 
 
-    <main>
+    <main >
 
         <!-- HERO -->
 
@@ -66,7 +66,7 @@
 
                     <div class="condition-hero-text">
 
-                        <span class="section-label">
+                        <span class="hero-label">
                             <%= condition.category %>
                         </span>
 
@@ -102,7 +102,7 @@
                     <div class="condition-hero-card">
 
                         <div class="condition-large-icon">
-                            +
+                            <i class="<%= condition.icon %>"></i>
                         </div>
 
                         <span>
@@ -486,12 +486,12 @@
 
                     <div class="related-buttons">
 
-                        <a
+                        <!-- <a
                             href="/find-a-doctor"
                             class="related-light"
                         >
                             Find a Doctor
-                        </a>
+                        </a> -->
 
                         <a
                             href="/appointment"
@@ -511,7 +511,7 @@
     </main>
 
 
-    <%- include('../partials/footer') %>
+    
     <script src="/js/navbar.js"></script>
 
 </body>
