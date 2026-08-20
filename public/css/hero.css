@@ -646,30 +646,35 @@
         border-radius: 14px;
 
         font-size: 20px;
+        display:none;
     }
 
 
     .hero-float-1 {
         top: 35px;
         left: 5%;
+        display: none;
     }
 
 
     .hero-float-2 {
         top: 90px;
         right: 5%;
+        display: none;
     }
 
 
     .hero-float-3 {
         bottom: 120px;
         left: 3%;
+        display: none;
     }
 
 
     .hero-float-4 {
         bottom: 55px;
         right: 7%;
+        display: none;
     }
 
 
@@ -679,6 +684,7 @@
 
         width: 45px;
         height: 45px;
+        display: none;
     }
 
 
@@ -712,14 +718,13 @@
 
 
     .hero-image-main {
-        width: 240px;
+        width: 300px;
         height: 320px;
     }
 
 
     .hero-float {
-        width: 45px;
-        height: 45px;
+        display: none;
 
         font-size: 18px;
     }
@@ -728,24 +733,36 @@
     .hero-float-1 {
         left: 2%;
         top: 35px;
+        width: 20px;
+        height: 20px;
+        display: none;
     }
 
 
     .hero-float-2 {
         right: 2%;
         top: 75px;
+        width: 20px;
+        height: 20px;
+        display: none;
     }
 
 
     .hero-float-3 {
         left: 0;
         bottom: 110px;
+        width: 20px;
+        height: 20px;
+        display: none;
     }
 
 
     .hero-float-4 {
         right: 2%;
         bottom: 50px;
+        width: 20px;
+        height: 20px;
+        display: none;
     }
 
 
@@ -758,6 +775,7 @@
         padding: 11px 14px;
 
         min-width: 180px;
+    
     }
 
 }

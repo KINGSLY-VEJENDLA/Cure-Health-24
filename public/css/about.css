@@ -471,6 +471,7 @@
     .who-image img,
     .approach-image img {
         height: 350px;
+        width: 350px;
     }
 
     .who-content h2,
