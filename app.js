@@ -764,10 +764,6 @@ app.get("/appointment", (req, res) => {
     res.render("pages/appointment");
 });
 
-app.get("/contact", (req, res) => {
-    res.render("pages/contact");
-});
-
 app.get("/privacy-policy", (req, res) => {
     res.render("pages/privacy");
 });
