@@ -1,0 +1,7 @@
+{
+  "ignore": [
+    "google-token.json",
+    ".env",
+    "node_modules/"
+  ]
+}

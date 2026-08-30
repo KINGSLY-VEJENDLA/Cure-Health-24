@@ -1,0 +1,814 @@
+/* =========================================
+   TELEMEDICINE HERO
+========================================= */
+
+.telemedicine-hero {
+    width: 100%;
+    padding: 85px 0;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #d8f5f8,
+            #f7fcfc 65%
+        );
+
+    box-sizing: border-box;
+}
+
+
+.telemedicine-hero-content {
+    max-width: 700px;
+}
+
+
+.telemedicine-hero h1 {
+    margin-top: 12px;
+
+    color: #064d59;
+
+    font-size: clamp(44px, 5vw, 62px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+}
+
+
+.telemedicine-hero h1 span {
+    color: #0ba2b2;
+}
+
+
+.telemedicine-hero p {
+    max-width: 600px;
+
+    margin-top: 22px;
+
+    color: #71868a;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   BOOKING SECTION
+========================================= */
+
+.telemedicine-booking {
+    padding: 90px 0;
+
+    background: #ffffff;
+}
+
+
+.telemedicine-layout {
+    display: grid;
+
+    grid-template-columns: .8fr 1.2fr;
+
+    gap: 70px;
+
+    align-items: start;
+}
+
+
+/* =========================================
+   LEFT INFORMATION
+========================================= */
+
+.telemedicine-info {
+    padding-top: 25px;
+}
+
+
+.telemedicine-info h2 {
+    margin-top: 10px;
+
+    color: #064d59;
+
+    font-size: 40px;
+
+    line-height: 1.15;
+}
+
+
+.telemedicine-info h2 span {
+    display: block;
+
+    color: #0ba2b2;
+}
+
+
+.telemedicine-info > p {
+    max-width: 500px;
+
+    margin-top: 18px;
+
+    color: #71868a;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   STEPS
+========================================= */
+
+.telemedicine-step {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+
+.telemedicine-step-icon {
+    flex-shrink: 0;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #e4f8fa;
+
+    color: #079aaa;
+}
+
+
+.telemedicine-step h3 {
+    color: #15515a;
+
+    font-size: 14px;
+}
+
+
+.telemedicine-step p {
+    max-width: 330px;
+
+    margin-top: 6px;
+
+    color: #788c90;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   NOTE
+========================================= */
+
+.telemedicine-note {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 35px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #f4fbfc;
+}
+
+
+.telemedicine-note i {
+    color: #075763;
+}
+
+
+.telemedicine-note p {
+    color: #71868a;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   FORM CARD
+========================================= */
+
+.telemedicine-form-card {
+    width: 100%;
+
+    padding: 35px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #dcecef;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 20px 50px rgba(5, 70, 80, .08);
+}
+
+
+.telemedicine-form-card form {
+    width: 100%;
+}
+
+
+.telemedicine-form-card .form-heading {
+    margin-bottom: 28px;
+}
+
+
+.telemedicine-form-card .form-heading h3 {
+    color: #064d59;
+
+    font-size: 24px;
+}
+
+
+.telemedicine-form-card .form-heading p {
+    margin-top: 7px;
+
+    color: #788c90;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.telemedicine-form-card .form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+
+.telemedicine-form-card .form-group {
+    margin-bottom: 18px;
+}
+
+
+.telemedicine-form-card .form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #365e64;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+.telemedicine-form-card input,
+.telemedicine-form-card select,
+.telemedicine-form-card textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #dbe9eb;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #f9fcfc;
+
+    color: #365e64;
+
+    font-family: inherit;
+
+    font-size: 12px;
+}
+
+
+.telemedicine-form-card input,
+.telemedicine-form-card select {
+    height: 46px;
+
+    padding: 0 14px;
+}
+
+
+.telemedicine-form-card textarea {
+    padding: 13px 14px;
+
+    resize: vertical;
+
+    min-height: 100px;
+}
+
+
+.telemedicine-form-card input:focus,
+.telemedicine-form-card select:focus,
+.telemedicine-form-card textarea:focus {
+    border-color: #74cbd2;
+
+    background: #ffffff;
+}
+
+
+/* =========================================
+   VIDEO NOTICE
+========================================= */
+
+.online-consultation-notice {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 5px;
+    margin-bottom: 20px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #eaf9fa;
+}
+
+
+.notice-icon {
+    flex-shrink: 0;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #075763;
+
+    color: #ffffff;
+}
+
+
+.online-consultation-notice strong {
+    display: block;
+
+    color: #064d59;
+
+    font-size: 11px;
+}
+
+
+.online-consultation-notice p {
+    margin-top: 4px;
+
+    color: #71868a;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   SUBMIT
+========================================= */
+
+.telemedicine-submit {
+    width: 100%;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #075763;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+
+.telemedicine-submit:hover {
+    background: #064a54;
+
+    transform: translateY(-2px);
+}
+
+
+.telemedicine-submit span {
+    margin-left: 8px;
+
+    font-size: 16px;
+}
+
+
+.telemedicine-form-card .form-note {
+    margin-top: 13px;
+
+    text-align: center;
+
+    color: #9aaeb1;
+
+    font-size: 9px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   HOW IT WORKS
+========================================= */
+
+.telemedicine-how {
+    padding: 90px 0;
+
+    background: #f4fbfc;
+}
+
+
+.telemedicine-how-heading {
+    text-align: center;
+}
+
+
+.telemedicine-how-heading h2 {
+    margin-top: 10px;
+
+    color: #064d59;
+
+    font-size: 38px;
+}
+
+
+.telemedicine-how-heading p {
+    max-width: 500px;
+
+    margin: 15px auto 0;
+
+    color: #71868a;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+.telemedicine-how-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 45px;
+}
+
+
+.telemedicine-how-card {
+    position: relative;
+
+    padding: 35px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border: 1px solid #dcecef;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 35px rgba(5, 70, 80, .05);
+}
+
+
+.how-number {
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    color: #d8eef0;
+
+    font-size: 28px;
+
+    font-weight: 800;
+}
+
+
+.telemedicine-how-card > i {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    border-radius: 15px;
+
+    background: #e4f8fa;
+
+    color: #075763;
+
+    font-size: 20px;
+}
+
+
+.telemedicine-how-card h3 {
+    color: #15515a;
+
+    font-size: 16px;
+}
+
+
+.telemedicine-how-card p {
+    margin-top: 10px;
+
+    color: #788c90;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media screen and (max-width: 900px) {
+
+    .telemedicine-layout {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .telemedicine-info {
+        padding-top: 0;
+    }
+
+    .telemedicine-how-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media screen and (max-width: 600px) {
+
+    .telemedicine-hero {
+        padding: 55px 0;
+    }
+
+    .telemedicine-hero h1 {
+        font-size: 42px;
+    }
+
+    .telemedicine-booking {
+        padding: 60px 0;
+    }
+
+    .telemedicine-info h2 {
+        font-size: 32px;
+    }
+
+    .telemedicine-form-card {
+        padding: 22px;
+
+        border-radius: 18px;
+    }
+
+    .telemedicine-form-card .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+    .telemedicine-how {
+        padding: 60px 0;
+    }
+
+    .telemedicine-how-heading h2 {
+        font-size: 30px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media screen and (max-width: 400px) {
+
+    .telemedicine-form-card {
+        padding: 18px;
+    }
+
+    .telemedicine-info h2 {
+        font-size: 29px;
+    }
+
+}
+
+
+/* =========================================
+   TELEMEDICINE HERO
+========================================= */
+
+.telemedicine-hero {
+    width: 100%;
+    padding: 85px 0;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #d8f5f8,
+            #f7fcfc 65%
+        );
+
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   HERO LAYOUT
+========================================= */
+
+.telemedicine-hero-layout {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 60px;
+}
+
+
+/* =========================================
+   HERO TEXT
+========================================= */
+
+.telemedicine-hero-content {
+    max-width: 600px;
+}
+
+
+.telemedicine-hero h1 {
+    margin-top: 12px;
+
+    color: #064d59;
+
+    font-size: clamp(44px, 5vw, 62px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+}
+
+
+.telemedicine-hero h1 span {
+    display: block;
+
+    color: #0ba2b2;
+}
+
+
+.telemedicine-hero p {
+    max-width: 560px;
+
+    margin-top: 22px;
+
+    color: #71868a;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   HERO IMAGE
+========================================= */
+
+.telemedicine-hero-image {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.telemedicine-hero-image img {
+    display: block;
+
+    width: 100%;
+
+    max-width: 520px;
+
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media screen and (max-width: 900px) {
+
+    .telemedicine-hero-layout {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        text-align: center;
+    }
+
+    .telemedicine-hero-content {
+        max-width: 700px;
+
+        margin: 0 auto;
+    }
+
+    .telemedicine-hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .telemedicine-hero-image img {
+        max-width: 450px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media screen and (max-width: 600px) {
+
+    .telemedicine-hero {
+        padding: 60px 0;
+    }
+
+    .telemedicine-hero h1 {
+        font-size: 42px;
+
+        letter-spacing: -1px;
+    }
+
+    .telemedicine-hero p {
+        font-size: 14px;
+    }
+
+    .telemedicine-hero-image img {
+        max-width: 350px;
+    }
+
+}

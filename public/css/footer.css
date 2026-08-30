@@ -1,0 +1,686 @@
+/* =========================================================
+   CURE HEALTH 24 FOOTER
+   ========================================================= */
+
+.site-footer {
+    position: relative;
+    background: #ffffff;
+    color: #294f55;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.footer-cta {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+
+/* CTA CARD */
+
+.footer-cta-content {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 285px;
+
+    /*
+       Extra left padding creates space
+       for the doctor image.
+    */
+    padding: 48px 60px 48px 360px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075763,
+            #0BA2B2
+        );
+
+    border-radius: 18px;
+
+    color: #ffffff;
+
+    /*
+       IMPORTANT:
+       Allows the doctor image to extend
+       outside the card.
+    */
+    overflow: visible;
+
+    box-shadow:
+        0 20px 50px rgba(7, 87, 99, 0.18);
+}
+
+
+/* =========================================================
+   DOCTOR IMAGE
+   ========================================================= */
+
+.footer-cta-image {
+    position: absolute;
+
+    left: 20px;
+    bottom: 0;
+
+    width: 330px;
+    height: 350px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+
+.footer-cta-image .docimg {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+    object-position: bottom center;
+
+    filter:
+        drop-shadow(
+            0 15px 20px rgba(0, 0, 0, 0.20)
+        );
+}
+
+
+/* =========================================================
+   CTA TEXT
+   ========================================================= */
+
+.footer-cta-text {
+    position: relative;
+
+    z-index: 4;
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.footer-cta-text h2 {
+    margin: 0 0 10px;
+
+    font-size: 32px;
+
+    line-height: 1.25;
+
+    color: #ffffff;
+}
+
+
+.footer-cta-text p {
+    max-width: 620px;
+
+    margin: 0 0 22px;
+
+    color:
+        rgba(255, 255, 255, 0.85);
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   NEWSLETTER
+   ========================================================= */
+
+.footer-newsletter {
+    display: flex;
+    align-items: center;
+
+    width: min(500px, 100%);
+
+    padding: 5px;
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+    border-radius: 50px;
+}
+
+
+.newsletter-input {
+    display: flex;
+    align-items: center;
+
+    flex: 1;
+
+    gap: 10px;
+
+    padding-left: 15px;
+}
+
+
+.newsletter-input i {
+    color:
+        rgba(255, 255, 255, 0.8);
+}
+
+
+.newsletter-input input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 14px;
+}
+
+
+.newsletter-input input::placeholder {
+    color:
+        rgba(255, 255, 255, 0.75);
+}
+
+
+.footer-newsletter button {
+    border: none;
+
+    padding: 12px 24px;
+
+    border-radius: 50px;
+
+    background: #ffffff;
+
+    color: #075763;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.footer-newsletter button:hover {
+    transform: translateY(-1px);
+}
+
+
+.footer-cta-text small {
+    display: block;
+
+    margin-top: 10px;
+
+    color:
+        rgba(255, 255, 255, 0.7);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   MAIN FOOTER
+   ========================================================= */
+
+.footer-main {
+    margin-top: -35px;
+
+    padding: 105px 0 55px;
+
+    background: #ffffff;
+}
+
+
+.footer-container {
+    width: min(1120px, 90%);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1fr
+        1.2fr
+        1.3fr;
+
+    gap: 45px;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.footer-brand {
+    max-width: 260px;
+}
+
+
+.footer-logo {
+    display: inline-block;
+
+    margin-bottom: 20px;
+}
+
+
+.footer-logo img {
+    width: 175px;
+
+    height: auto;
+}
+
+
+.footer-brand p {
+    margin: 0;
+
+    color: #718589;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SOCIAL
+   ========================================================= */
+
+.footer-social {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 22px;
+}
+
+
+.footer-social a {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f1f8f9;
+
+    color: #075763;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+
+.footer-social a:hover {
+    background: #075763;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER COLUMNS
+   ========================================================= */
+
+.footer-column h3,
+.footer-contact h3 {
+    margin: 0 0 20px;
+
+    color: #172f34;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+
+.footer-column ul {
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+.footer-column li {
+    margin-bottom: 12px;
+}
+
+
+.footer-column a {
+    color: #718589;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: 0.25s ease;
+}
+
+
+.footer-column a:hover {
+    color: #075763;
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact-item {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-bottom: 17px;
+
+    color: #718589;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+.contact-item i {
+    width: 18px;
+
+    flex-shrink: 0;
+
+    margin-top: 3px;
+
+    color: #0BA2B2;
+}
+
+
+/* =========================================================
+   BOTTOM BAR
+   ========================================================= */
+
+.footer-bottom {
+    border-top:
+        1px solid #e5eef0;
+
+    background: #ffffff;
+}
+
+
+.footer-bottom-container {
+    width: min(1120px, 90%);
+
+    margin: 0 auto;
+
+    min-height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+
+.footer-bottom p {
+    margin: 0;
+
+    color: #788b8f;
+
+    font-size: 12px;
+}
+
+
+.footer-legal {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+.footer-legal a {
+    color: #647b80;
+
+    text-decoration: none;
+
+    font-size: 12px;
+}
+
+
+.footer-legal a:hover {
+    color: #075763;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .footer-cta-content {
+        padding-left: 300px;
+    }
+
+
+    .footer-cta-image {
+        width: 280px;
+
+        height: 310px;
+
+        left: 10px;
+    }
+
+
+    .footer-container {
+        grid-template-columns:
+            1.5fr
+            1fr
+            1fr;
+
+        row-gap: 45px;
+    }
+
+
+    .footer-contact {
+        grid-column: span 2;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .footer-cta {
+        width: 92%;
+    }
+
+
+    /*
+       On mobile the doctor becomes part
+       of the top of the card.
+    */
+
+    .footer-cta-content {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+
+        min-height: auto;
+
+        padding:
+            220px
+            28px
+            35px;
+    }
+
+
+    .footer-cta-image {
+        left: 50%;
+
+        top: -5px;
+
+        bottom: auto;
+
+        width: 230px;
+
+        height: 230px;
+
+        transform:
+            translateX(-50%);
+    }
+
+
+    .footer-cta-text {
+        width: 100%;
+    }
+
+
+    .footer-cta-text h2 {
+        font-size: 26px;
+    }
+
+
+    .footer-newsletter {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 8px;
+
+        border-radius: 15px;
+    }
+
+
+    .newsletter-input {
+        padding: 10px;
+    }
+
+
+    .footer-newsletter button {
+        width: 100%;
+    }
+
+
+    .footer-main {
+        margin-top: -20px;
+
+        padding-top: 75px;
+    }
+
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 35px 25px;
+    }
+
+
+    .footer-brand {
+        grid-column: span 2;
+
+        max-width: 100%;
+    }
+
+
+    .footer-contact {
+        grid-column: span 2;
+    }
+
+
+    .footer-bottom-container {
+        flex-direction: column;
+
+        justify-content: center;
+
+        padding: 22px 0;
+
+        text-align: center;
+    }
+
+
+    .footer-legal {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .footer-brand,
+    .footer-contact {
+        grid-column: auto;
+    }
+
+
+    .footer-cta-content {
+        padding:
+            200px
+            22px
+            30px;
+    }
+
+
+    .footer-cta-image {
+        width: 210px;
+
+        height: 210px;
+    }
+
+
+    .footer-cta-text h2 {
+        font-size: 23px;
+    }
+
+}

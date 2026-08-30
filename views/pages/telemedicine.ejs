@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Telemedicine Consultation | Cure Health 24</title>
+
+    <link rel="icon"
+          type="image/png"
+          href="/images/logo/favicon.png">
+
+    <meta
+        name="description"
+        content="Book a secure telemedicine consultation with a healthcare professional from the comfort of your home."
+    >
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/telemedicine.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/hero.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <%- include('../partials/navbar') %>
+
+
+    <main>
+
+        <!-- =========================================
+             TELEMEDICINE HERO
+        ========================================== -->
+
+       <section class="telemedicine-hero">
+
+    <div class="section-container">
+
+        <div class="telemedicine-hero-layout">
+
+            <!-- LEFT: TEXT -->
+            <div class="telemedicine-hero-content">
+
+                <span class="hero-label section-label">
+                    Telemedicine Consultation
+                </span>
+
+                <h1>
+                    Healthcare
+                    <span>From Anywhere.</span>
+                </h1>
+
+                <p>
+                    Connect with a healthcare professional online
+                    without leaving the comfort of your home.
+                </p>
+
+            </div>
+
+
+            <!-- RIGHT: IMAGE -->
+            <div class="telemedicine-hero-image">
+
+                <img
+                    src="/images/services/telemedicine-hero.png"
+                    alt="Telemedicine Consultation"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        <!-- =========================================
+             TELEMEDICINE BOOKING
+        ========================================== -->
+
+        <section class="telemedicine-booking">
+
+            <div class="section-container">
+
+                <div class="telemedicine-layout">
+
+
+                    <!-- LEFT INFORMATION -->
+
+                    <div class="telemedicine-info">
+
+                        <span class=" hero-label">
+                            Online Healthcare
+                        </span>
+
+                        <h2>
+                            Book Your
+                            <span>Online Consultation</span>
+                        </h2>
+
+                        <p>
+                            Complete the form to request a telemedicine
+                            consultation with one of our healthcare
+                            professionals.
+                        </p>
+
+
+                        <div class="telemedicine-step">
+
+                            <div class="telemedicine-step-icon">
+                                <img
+                                    src="/images/services/1.png"
+                                    alt="Your Appointment"
+                                >
+                            </div>
+
+                            <div>
+                                <h3>1. Choose Your Appointment</h3>
+
+                                <p>
+                                    Select your medical specialty,
+                                    preferred doctor, date and time.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="telemedicine-step">
+
+                            <div class="telemedicine-step-icon">
+                                   <img
+                                        src="/images/services/2.png"
+                                        alt="Consultation Confirmation"
+                                   >
+                            </div>
+
+                            <div>
+                                <h3>2. Consultation Confirmation</h3>
+
+                                <p>
+                                    Our team will review your request
+                                    and confirm your consultation.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="telemedicine-step">
+
+                            <div class="telemedicine-step-icon">
+                                   <img
+                                        src="/images/services/3.png"
+                                        alt="Join Your Consultation"
+                                   >
+                            </div>
+
+                            <div>
+                                <h3>3. Join Your Consultation</h3>
+
+                                <p>
+                                    You will receive the online
+                                    consultation details and meeting
+                                    link after confirmation.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="telemedicine-note">
+
+                            <i class="fas fa-shield-alt"></i>
+
+                            <p>
+                                Your information is used only for
+                                managing your healthcare appointment.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RIGHT FORM -->
+
+                    <div class="telemedicine-form-card">
+
+                        <form
+                            id="telemedicineForm"
+                            action="/telemedicine"
+                            method="POST"
+                        >
+
+                            <div class="form-heading">
+
+                                <h3>
+                                    Telemedicine Appointment
+                                </h3>
+
+                                <p>
+                                    Please provide your details below.
+                                </p>
+
+                            </div>
+
+
+                            <!-- NAME -->
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="firstName">
+                                        First Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="firstName"
+                                        name="firstName"
+                                        placeholder="Enter first name"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="lastName">
+                                        Last Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="lastName"
+                                        name="lastName"
+                                        placeholder="Enter last name"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- CONTACT -->
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="email">
+                                        Email Address
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        placeholder="you@example.com"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="phone">
+                                        Phone Number
+                                    </label>
+
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        placeholder="Enter phone number"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- SPECIALTY -->
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="specialty">
+                                        Medical Specialty
+                                    </label>
+
+                                    <select
+                                        id="specialty"
+                                        name="specialty"
+                                        required
+                                    >
+
+                                        <option value="">
+                                            Select specialty
+                                        </option>
+
+                                        <option>Cardiology</option>
+                                        <option>Dentistry</option>
+                                        <option>Gastroenterology</option>
+                                        <option>Neurology</option>
+                                        <option>Orthopedics</option>
+                                        <option>Pediatrics</option>
+                                        <option>Gynecology</option>
+                                        <option>Dermatology</option>
+                                        <option>General Medicine</option>
+                                        <option>Urology</option>
+                                        <option>ENT</option>
+                                        <option>Renal Care</option>
+                                        <option>Others</option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="doctor">
+                                        Preferred Doctor
+                                    </label>
+
+                                    <select
+                                        id="doctor"
+                                        name="doctor"
+                                    >
+
+                                        <option value="">
+                                            Any available doctor
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- DATE & TIME -->
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="date">
+                                        Preferred Date
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        id="date"
+                                        name="date"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="time">
+                                        Preferred Time
+                                    </label>
+
+                                    <select
+                                        id="time"
+                                        name="time"
+                                        required
+                                    >
+
+                                        <option value="">
+                                            Select time
+                                        </option>
+
+                                        <option value="09:00">09:00 AM</option>
+<option value="09:20">09:20 AM</option>
+<option value="09:40">09:40 AM</option>
+
+<option value="10:00">10:00 AM</option>
+<option value="10:20">10:20 AM</option>
+<option value="10:40">10:40 AM</option>
+
+<option value="11:00">11:00 AM</option>
+<option value="11:20">11:20 AM</option>
+<option value="11:40">11:40 AM</option>
+
+<option value="12:00">12:00 PM</option>
+<option value="12:20">12:20 PM</option>
+
+<option disabled>──────── Lunch Break ────────</option>
+
+<option value="13:40">01:40 PM</option>
+<option value="14:00">02:00 PM</option>
+<option value="14:20">02:20 PM</option>
+<option value="14:40">02:40 PM</option>
+
+<option value="15:00">03:00 PM</option>
+<option value="15:20">03:20 PM</option>
+<option value="15:40">03:40 PM</option>
+
+<option value="16:00">04:00 PM</option>
+<option value="16:20">04:20 PM</option>
+<option value="16:40">04:40 PM</option>
+
+<option value="17:00">05:00 PM</option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- REASON -->
+
+                            <div class="form-group">
+
+                                <label for="message">
+                                    Reason for Consultation
+                                </label>
+
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="4"
+                                    placeholder="Briefly describe your reason for consultation"
+                                ></textarea>
+
+                            </div>
+
+
+                            <!-- ONLINE CONSULTATION NOTICE -->
+
+                            <div class="online-consultation-notice">
+
+                                <div class="notice-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Online Video Consultation
+                                    </strong>
+
+                                    <p>
+                                        After confirmation, you will
+                                        receive the consultation details
+                                        and secure meeting link.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="telemedicine-submit"
+                            >
+
+                                Request Telemedicine Appointment
+
+                                <span>→</span>
+
+                            </button>
+
+
+                            <p class="form-note">
+
+                                By submitting this form, you agree to be
+                                contacted regarding your consultation.
+
+                            </p>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             HOW IT WORKS
+        ========================================== -->
+
+        <section class="telemedicine-how">
+
+            <div class="section-container">
+
+                <div class="telemedicine-how-heading">
+
+                    <span class="section-label">
+                        Simple & Convenient
+                    </span>
+
+                    <h2>
+                        How Telemedicine Works
+                    </h2>
+
+                    <p>
+                        Access healthcare through a simple online
+                        consultation process.
+                    </p>
+
+                </div>
+
+
+                <div class="telemedicine-how-grid">
+
+                    <div class="telemedicine-how-card">
+
+                        <div class="how-number">
+                            01
+                        </div>
+
+                        <img
+                            src="/images/services/4.jpg"
+                            alt="Book Appointment"
+                        />
+
+                        <h3>
+                            Book Appointment
+                        </h3>
+
+                        <p>
+                            Select your specialty, doctor, date and
+                            preferred consultation time.
+                        </p>
+
+                    </div>
+
+
+                    <div class="telemedicine-how-card">
+
+                        <div class="how-number">
+                            02
+                        </div>
+
+                        <img
+                            src="/images/services/5.png"
+                            alt="Consultation Confirmation"
+                        />
+
+                        <h3>
+                            Get Confirmation
+                        </h3>
+
+                        <p>
+                            Our team confirms your appointment and
+                            prepares your consultation details.
+                        </p>
+
+                    </div>
+
+
+                    <div class="telemedicine-how-card">
+
+                        <div class="how-number">
+                            03
+                        </div>
+
+                        <img
+                            src="/images/services/6.jpg"
+                            alt="Join Your Consultation"
+                        />
+
+                        <h3>
+                            Join Online
+                        </h3>
+
+                        <p>
+                            Use the secure meeting link to connect
+                            with your healthcare professional.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <%- include('../partials/footer') %>
+
+
+    <script src="/js/navbar.js"></script>
+
+</body>
+
+</html>

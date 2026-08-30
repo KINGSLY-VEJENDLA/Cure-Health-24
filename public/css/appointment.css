@@ -1212,3 +1212,365 @@ main {
     font-size: 14px;
     font-weight: 600;
 }
+
+/* =========================================
+   TELEMEDICINE SECTION
+========================================= */
+
+.telemedicine-section {
+    width: 100%;
+    padding: 90px 0;
+    background: #f4fbfc;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   TELEMEDICINE CARD
+========================================= */
+
+.telemedicine-card {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 60px;
+    padding: 60px;
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #dcecef;
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 50px rgba(5, 70, 80, .08);
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.telemedicine-content {
+    min-width: 0;
+}
+
+.telemedicine-label {
+    display: inline-block;
+    margin-bottom: 15px;
+
+    padding: 7px 13px;
+
+    border-radius: 20px;
+
+    background: #e4f8fa;
+    color: #087485;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+.telemedicine-content h2 {
+    margin: 8px 0 0;
+
+    color: #064d59;
+
+    font-size: 40px;
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+}
+
+
+.telemedicine-content h2 span {
+    display: block;
+    color: #0ba2b2;
+}
+
+
+.telemedicine-content > p {
+    max-width: 600px;
+
+    margin-top: 18px;
+
+    color: #71868a;
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   BENEFITS
+========================================= */
+
+.telemedicine-benefits {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+
+    margin-top: 35px;
+}
+
+
+.telemedicine-benefit {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 14px;
+
+    min-width: 0;
+}
+
+
+.telemedicine-icon {
+    flex-shrink: 0;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #e4f8fa;
+    color: #075763;
+
+    font-size: 15px;
+}
+
+
+.telemedicine-benefit h3 {
+    margin: 0;
+
+    color: #15515a;
+
+    font-size: 14px;
+}
+
+
+.telemedicine-benefit p {
+    margin-top: 6px;
+
+    color: #788c90;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   RIGHT ACTION CARD
+========================================= */
+
+.telemedicine-action {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px;
+
+    text-align: center;
+
+    border-radius: 22px;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #d8f5f8,
+            #f7fcfc 65%
+        );
+
+    box-sizing: border-box;
+}
+
+
+.telemedicine-visual {
+    width: 130px;
+    height: 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 15px 35px rgba(5, 70, 80, .10);
+}
+
+
+.telemedicine-circle {
+    width: 82px;
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+
+    background: #075763;
+
+    color: #ffffff;
+
+    font-size: 34px;
+}
+
+
+.telemedicine-action h3 {
+    color: #064d59;
+
+    font-size: 22px;
+}
+
+
+.telemedicine-action > p {
+    max-width: 330px;
+
+    margin-top: 10px;
+
+    color: #71868a;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   TELEMEDICINE BUTTON
+========================================= */
+
+.telemedicine-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+
+    padding: 14px 22px;
+
+    border-radius: 10px;
+
+    background: #075763;
+
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: .25s ease;
+}
+
+
+.telemedicine-button:hover {
+    background: #064a54;
+
+    transform: translateY(-2px);
+}
+
+
+.telemedicine-button span {
+    font-size: 16px;
+}
+
+
+/* =========================================
+   TELEMEDICINE TABLET
+========================================= */
+
+@media screen and (max-width: 900px) {
+
+    .telemedicine-card {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        padding: 45px;
+    }
+
+    .telemedicine-action {
+        min-height: 380px;
+    }
+
+}
+
+
+/* =========================================
+   TELEMEDICINE MOBILE
+========================================= */
+
+@media screen and (max-width: 600px) {
+
+    .telemedicine-section {
+        padding: 60px 0;
+    }
+
+    .telemedicine-card {
+        padding: 25px 20px;
+
+        border-radius: 20px;
+
+        gap: 30px;
+    }
+
+    .telemedicine-content h2 {
+        font-size: 32px;
+    }
+
+    .telemedicine-benefits {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+    .telemedicine-action {
+        padding: 30px 20px;
+
+        min-height: 350px;
+
+        border-radius: 18px;
+    }
+
+    .telemedicine-button {
+        width: 100%;
+
+        box-sizing: border-box;
+    }
+
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media screen and (max-width: 400px) {
+
+    .telemedicine-content h2 {
+        font-size: 29px;
+    }
+
+    .telemedicine-card {
+        padding: 22px 16px;
+    }
+
+}

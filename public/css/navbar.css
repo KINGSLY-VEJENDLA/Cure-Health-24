@@ -42,8 +42,8 @@
 .logo img {
     display: block;
 
-    width: 230px;
-    height: 70px;
+    width: 280px;
+    height: 90px;
 
     object-fit: contain;
 }
@@ -295,4 +295,20 @@
         display: flex;
     }
 
+}
+
+
+.nav-menu a {
+    font-weight: 600 !important;
+}
+
+.nav-menu a {
+    font-family: "Inter", sans-serif !important;
+    font-size: 14px !important;
+    letter-spacing: 0 !important;
+}
+.nav-appointment{
+    font-family: "Inter", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 550 !important;
 }

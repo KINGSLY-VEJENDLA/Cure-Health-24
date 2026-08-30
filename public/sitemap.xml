@@ -4,6 +4,10 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
 >
 
+    <!-- =========================================
+         MAIN PAGES
+    ========================================== -->
+
     <url>
         <loc>https://curehealth24.com/</loc>
     </url>
@@ -27,5 +31,129 @@
     <url>
         <loc>https://curehealth24.com/appointment</loc>
     </url>
+
+    <url>
+        <loc>https://curehealth24.com/telemedicine</loc>
+    </url>
+
+
+    <!-- =========================================
+         HEALTH LIBRARY
+    ========================================== -->
+
+    <url>
+        <loc>https://curehealth24.com/health-library/conditions</loc>
+    </url>
+
+
+    <!-- =========================================
+         HEALTH CONDITIONS
+    ========================================== -->
+
+    <url>
+        <loc>https://curehealth24.com/health-library/conditions/diabetes</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/health-library/conditions/hypertension</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/health-library/conditions/heart-health</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/health-library/conditions/asthma</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/health-library/conditions/arthritis</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/health-library/conditions/migraine</loc>
+    </url>
+
+
+    <!-- =========================================
+         HEALTH TOPICS
+    ========================================== -->
+
+    <url>
+        <loc>https://curehealth24.com/health-library/headache</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/health-library/dental-health</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/health-library/womens-health</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/health-library/childrens-health</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/health-library/back-pain</loc>
+    </url>
+
+
+    <!-- =========================================
+         MEDICAL SERVICES
+    ========================================== -->
+
+    <url>
+        <loc>https://curehealth24.com/medical-services/cardiology</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/medical-services/dentistry</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/medical-services/gastroenterology</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/medical-services/neurology</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/medical-services/orthopedics</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/medical-services/pediatrics</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/medical-services/gynecology</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/medical-services/dermatology</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/medical-services/general-medicine</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/medical-services/urology</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/medical-services/ent</loc>
+    </url>
+
+    <url>
+        <loc>https://curehealth24.com/medical-services/renal-care</loc>
+    </url>
+
+    <url>
+    <loc>https://curehealth24.com/terms-and-conditions</loc>
+</url>
 
 </urlset>

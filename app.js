@@ -1,13 +1,106 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 
+const fs = require("fs");
 const app = express();
 const PORT = 3000;
-require("dotenv").config();
+
 
 const { Resend } = require("resend");
+const { google } = require("googleapis");
+const crypto = require("crypto");
+
+const cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+
+// =========================================================
+// GOOGLE OAUTH CONFIGURATION
+// =========================================================
+
+const googleOAuth2Client = new google.auth.OAuth2(
+    process.env.GOOGLE_CLIENT_ID,
+    process.env.GOOGLE_CLIENT_SECRET,
+    process.env.GOOGLE_REDIRECT_URI
+);
+
+// Google Calendar permissions
+const googleScopes = [
+    "https://www.googleapis.com/auth/calendar"
+];
+
+const GOOGLE_TOKEN_PATH = path.join(
+    __dirname,
+    "google-token.json"
+);
+
+function saveGoogleTokens(tokens) {
+    try {
+        let existingTokens = {};
+
+        if (fs.existsSync(GOOGLE_TOKEN_PATH)) {
+            existingTokens = JSON.parse(
+                fs.readFileSync(GOOGLE_TOKEN_PATH, "utf8")
+            );
+        }
+
+        const updatedTokens = {
+            ...existingTokens,
+            ...tokens
+        };
+
+        fs.writeFileSync(
+            GOOGLE_TOKEN_PATH,
+            JSON.stringify(updatedTokens, null, 2),
+            "utf8"
+        );
+
+        console.log("✅ Google tokens saved successfully");
+
+    } catch (error) {
+
+        console.error(
+            "❌ Failed to save Google tokens:",
+            error
+        );
+
+    }
+}
+
+function loadGoogleTokens() {
+    try {
+
+        if (!fs.existsSync(GOOGLE_TOKEN_PATH)) {
+            console.log("ℹ️ No saved Google tokens found.");
+            return false;
+        }
+
+        const tokens = JSON.parse(
+            fs.readFileSync(GOOGLE_TOKEN_PATH, "utf8")
+        );
+
+        googleOAuth2Client.setCredentials(tokens);
+
+        console.log("✅ Google Calendar credentials loaded.");
+
+        return true;
+
+    } catch (error) {
+
+        console.error(
+            "❌ Failed to load Google tokens:",
+            error.message
+        );
+
+        return false;
+    }
+}
+
+loadGoogleTokens();
 
 // EJS
 app.set("view engine", "ejs");
@@ -19,6 +112,8 @@ app.use(express.static(path.join(__dirname, "public")));
 // Form data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+
 
 
 const healthConditions = {
@@ -685,11 +780,15 @@ app.get("/services", (req, res) => {
     res.render("pages/services");
 });
 
+app.get('/telemedicine', (req, res) => {
+    res.render('pages/telemedicine');
+});
+
 // ==========================================
 // HEALTH LIBRARY - GENERAL PAGES
 // ==========================================
 
-app.get("/health-library/symptoms/headache", (req, res) => {
+app.get("/health-library/headache", (req, res) => {
 
     res.render("pages/health-topic", {
         topic: healthTopics.headache
@@ -707,7 +806,7 @@ app.get("/health-library/dental-health", (req, res) => {
 });
 
 
-app.get("/health-library/articles/healthy-eating", (req, res) => {
+app.get("/health-library/healthy-eating", (req, res) => {
 
     res.render("pages/health-topic", {
         topic: healthTopics.healthyEating
@@ -734,7 +833,7 @@ app.get("/health-library/childrens-health", (req, res) => {
 });
 
 
-app.get("/health-library/symptoms/back-pain", (req, res) => {
+app.get("/health-library/back-pain", (req, res) => {
 
     res.render("pages/health-topic", {
         topic: healthTopics.backPain
@@ -742,7 +841,40 @@ app.get("/health-library/symptoms/back-pain", (req, res) => {
 
 });
 
+// =========================================================
+// GOOGLE OAUTH - START AUTHORIZATION
+// =========================================================
 
+app.get("/auth/google", (req, res) => {
+
+    const state = crypto.randomBytes(32).toString("hex");
+
+    // Store state temporarily in the session/cookie later.
+    // For the first implementation, keep it in a signed cookie.
+   res.cookie("google_oauth_state", state, {
+    httpOnly: true,
+    secure: false,
+    sameSite: "lax",
+    maxAge: 10 * 60 * 1000
+});
+
+    const authorizationUrl =
+        googleOAuth2Client.generateAuthUrl({
+
+            access_type: "offline",
+
+            scope: googleScopes,
+
+            include_granted_scopes: true,
+
+            prompt: "consent",
+
+            state: state
+
+        });
+
+    res.redirect(authorizationUrl);
+});
 
 // =================================
 // MEDICAL SPECIALTY PAGES
@@ -1453,8 +1585,1051 @@ app.post("/appointment", async (req, res) => {
 
 });
 
+// =========================================================
+// TELEMEDICINE APPOINTMENT
+// =========================================================
+
+// =========================================================
+// TELEMEDICINE APPOINTMENT
+// GOOGLE CALENDAR + GOOGLE MEET + EMAIL
+// =========================================================
+
+app.post("/telemedicine", async (req, res) => {
+
+    try {
+
+        const {
+            firstName,
+            lastName,
+            email,
+            phone,
+            specialty,
+            doctor,
+            date,
+            time,
+            message
+        } = req.body;
 
 
+        // =====================================================
+        // BASIC VALIDATION
+        // =====================================================
+
+        if (
+            !firstName ||
+            !lastName ||
+            !email ||
+            !phone ||
+            !specialty ||
+            !date ||
+            !time
+        ) {
+
+            return res.status(400).send(`
+                <h2>Missing Appointment Details</h2>
+                <p>
+                    Please provide all required appointment information.
+                </p>
+                <a href="/telemedicine">
+                    Back to Telemedicine
+                </a>
+            `);
+
+        }
+
+
+        // =====================================================
+        // CREATE GOOGLE CALENDAR CLIENT
+        // =====================================================
+
+        const calendar = google.calendar({
+            version: "v3",
+            auth: googleOAuth2Client
+        });
+
+
+        // =====================================================
+        // CREATE DATE/TIME
+        // =====================================================
+
+        const startDateTime = new Date(
+            `${date}T${time}:00+05:30`
+        );
+
+        const endDateTime = new Date(
+            startDateTime.getTime() +
+            20 * 60 * 1000
+        );
+
+        // =====================================================
+// CHECK WHETHER APPOINTMENT SLOT IS ALREADY BOOKED
+// =====================================================
+
+const existingEvents = await calendar.events.list({
+    calendarId: "primary",
+
+    timeMin: startDateTime.toISOString(),
+
+    timeMax: endDateTime.toISOString(),
+
+    singleEvents: true,
+
+    orderBy: "startTime"
+});
+
+const conflictingEvent =
+    existingEvents.data.items?.find(event => {
+
+        if (event.status === "cancelled") {
+            return false;
+        }
+
+        const existingStart =
+            new Date(event.start.dateTime);
+
+        const existingEnd =
+            new Date(event.end.dateTime);
+
+        return (
+            startDateTime < existingEnd &&
+            endDateTime > existingStart
+        );
+    });
+
+
+if (conflictingEvent) {
+
+    console.log("❌ APPOINTMENT SLOT ALREADY BOOKED");
+    console.log("Date:", date);
+    console.log("Time:", time);
+
+    return res.status(409).send(`
+
+        <!DOCTYPE html>
+
+        <html>
+
+        <head>
+            <title>Slot Unavailable | Cure Health 24</title>
+        </head>
+
+        <body>
+
+            <div style="
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding: 100px 20px;
+            ">
+
+                <h1 style="color:#075763;">
+                    Appointment Slot Unavailable
+                </h1>
+
+                <p>
+                    Sorry, the ${time} appointment slot on
+                    ${date} has already been booked.
+                </p>
+
+                <p>
+                    Please select another available time.
+                </p>
+
+                <a
+                    href="/telemedicine"
+                    style="
+                        display:inline-block;
+                        margin-top:20px;
+                        padding:12px 24px;
+                        background:#075763;
+                        color:white;
+                        text-decoration:none;
+                        border-radius:8px;
+                    "
+                >
+                    Choose Another Time
+                </a>
+
+            </div>
+
+        </body>
+
+        </html>
+
+    `);
+}
+
+
+        if (isNaN(startDateTime.getTime())) {
+
+            return res.status(400).send(`
+                <h2>Invalid Appointment Date or Time</h2>
+                <p>
+                    Please select a valid appointment date and time.
+                </p>
+                <a href="/telemedicine">
+                    Back to Telemedicine
+                </a>
+            `);
+
+        }
+
+
+        // =====================================================
+        // GOOGLE CALENDAR EVENT
+        // =====================================================
+
+        const event = {
+
+            summary:
+                `Cure Health 24 - Telemedicine Consultation`,
+
+            description: `
+Patient: ${firstName} ${lastName}
+Email: ${email}
+Phone: ${phone}
+
+Medical Specialty: ${specialty}
+
+Doctor: ${doctor || "Any available doctor"}
+
+Reason for Consultation:
+${message || "Not provided"}
+
+Consultation Type:
+Telemedicine / Online Consultation
+            `.trim(),
+
+            start: {
+                dateTime: startDateTime.toISOString(),
+                timeZone: "Asia/Kolkata"
+            },
+
+            end: {
+                dateTime: endDateTime.toISOString(),
+                timeZone: "Asia/Kolkata"
+            },
+
+            attendees: [
+                {
+                    email: email,
+                    displayName:
+                        `${firstName} ${lastName}`
+                }
+            ],
+
+            conferenceData: {
+
+                createRequest: {
+
+                    requestId:
+                        `cure-health-${Date.now()}-${crypto.randomBytes(4).toString("hex")}`,
+
+                    conferenceSolutionKey: {
+                        type: "hangoutsMeet"
+                    }
+
+                }
+
+            }
+
+        };
+
+
+        // =====================================================
+        // CREATE CALENDAR EVENT + GOOGLE MEET
+        // =====================================================
+
+        const calendarResponse =
+            await calendar.events.insert({
+
+                calendarId: "primary",
+
+                resource: event,
+
+                conferenceDataVersion: 1,
+
+                sendUpdates: "all"
+
+            });
+
+
+        const createdEvent =
+            calendarResponse.data;
+
+
+        // =====================================================
+        // GET GOOGLE MEET LINK
+        // =====================================================
+
+        const meetEntry =
+            createdEvent
+                .conferenceData
+                ?.entryPoints
+                ?.find(
+                    entry =>
+                        entry.entryPointType === "video"
+                );
+
+
+        const meetLink =
+            meetEntry?.uri || null;
+
+
+        if (!meetLink) {
+
+            throw new Error(
+                "Google Meet link could not be generated."
+            );
+
+        }
+
+
+        console.log("================================");
+        console.log("TELEMEDICINE APPOINTMENT CREATED");
+        console.log("Patient:", firstName, lastName);
+        console.log("Email:", email);
+        console.log("Date:", date);
+        console.log("Time:", time);
+        console.log("Calendar Event:", createdEvent.id);
+        console.log("Google Meet:", meetLink);
+        console.log("================================");
+
+
+        // =====================================================
+        // EMAIL TO CURE HEALTH 24
+        // =====================================================
+
+        const adminEmailContent = `
+
+            <div style="
+                font-family: Arial, sans-serif;
+                max-width: 650px;
+                margin: auto;
+                color: #365e64;
+            ">
+
+                <div style="
+                    background: #075763;
+                    padding: 25px;
+                    text-align: center;
+                    border-radius: 12px 12px 0 0;
+                ">
+
+                    <h2 style="
+                        color: white;
+                        margin: 0;
+                    ">
+                        CURE HEALTH 24
+                    </h2>
+
+                    <p style="
+                        color: #c4e2e5;
+                        margin: 8px 0 0;
+                    ">
+                        New Telemedicine Appointment
+                    </p>
+
+                </div>
+
+                <div style="
+                    padding: 30px;
+                    border: 1px solid #dcecef;
+                    border-top: none;
+                    border-radius: 0 0 12px 12px;
+                ">
+
+                    <h3 style="color: #075763;">
+                        Appointment Details
+                    </h3>
+
+                    <p>
+                        <strong>Patient:</strong><br>
+                        ${firstName} ${lastName}
+                    </p>
+
+                    <p>
+                        <strong>Email:</strong><br>
+                        ${email}
+                    </p>
+
+                    <p>
+                        <strong>Phone:</strong><br>
+                        ${phone}
+                    </p>
+
+                    <p>
+                        <strong>Specialty:</strong><br>
+                        ${specialty}
+                    </p>
+
+                    <p>
+                        <strong>Doctor:</strong><br>
+                        ${doctor || "Any available doctor"}
+                    </p>
+
+                    <p>
+                        <strong>Date:</strong><br>
+                        ${date}
+                    </p>
+
+                    <p>
+                        <strong>Time:</strong><br>
+                        ${time}
+                    </p>
+
+                    <p>
+                        <strong>Reason:</strong><br>
+                        ${message || "Not provided"}
+                    </p>
+
+                    <hr style="
+                        border: none;
+                        border-top: 1px solid #dcecef;
+                        margin: 25px 0;
+                    ">
+
+                    <div style="
+                        background: #eaf9fa;
+                        padding: 18px;
+                        border-radius: 10px;
+                    ">
+
+                        <strong style="color: #075763;">
+                            Google Meet Consultation
+                        </strong>
+
+                        <p>
+                            <a
+                                href="${meetLink}"
+                                style="
+                                    color: #075763;
+                                    font-weight: 700;
+                                "
+                            >
+                                ${meetLink}
+                            </a>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        // =====================================================
+        // SEND ADMIN EMAIL
+        // =====================================================
+
+        const { data: adminData, error: adminError } =
+            await resend.emails.send({
+
+                from:
+                    "CURE HEALTH 24 <info@curehealth24.com>",
+
+                to: [
+                    "info@curehealth24.com"
+                ],
+
+                subject:
+                    `Telemedicine Appointment - ${firstName} ${lastName}`,
+
+                html:
+                    adminEmailContent,
+
+                replyTo:
+                    email
+
+            });
+
+
+        if (adminError) {
+
+            console.error(
+                "ADMIN EMAIL ERROR:",
+                adminError.message
+            );
+
+        }
+
+
+        // =====================================================
+        // CONFIRMATION EMAIL TO PATIENT
+        // =====================================================
+
+        const patientEmailContent = `
+
+            <div style="
+                font-family: Arial, sans-serif;
+                max-width: 650px;
+                margin: auto;
+                color: #365e64;
+            ">
+
+                <div style="
+                    background: #075763;
+                    padding: 25px;
+                    text-align: center;
+                    border-radius: 12px 12px 0 0;
+                ">
+
+                    <h2 style="
+                        color: white;
+                        margin: 0;
+                    ">
+                        CURE HEALTH 24
+                    </h2>
+
+                    <p style="
+                        color: #c4e2e5;
+                        margin: 8px 0 0;
+                    ">
+                        Telemedicine Consultation Confirmed
+                    </p>
+
+                </div>
+
+                <div style="
+                    padding: 30px;
+                    border: 1px solid #dcecef;
+                    border-top: none;
+                    border-radius: 0 0 12px 12px;
+                ">
+
+                    <h2 style="color: #075763;">
+                        Hello ${firstName},
+                    </h2>
+
+                    <p>
+                        Your telemedicine consultation request
+                        has been scheduled.
+                    </p>
+
+                    <p>
+                        <strong>Specialty:</strong>
+                        ${specialty}
+                    </p>
+
+                    <p>
+                        <strong>Doctor:</strong>
+                        ${doctor || "Assigned doctor"}
+                    </p>
+
+                    <p>
+                        <strong>Date:</strong>
+                        ${date}
+                    </p>
+
+                    <p>
+                        <strong>Time:</strong>
+                        ${time}
+                    </p>
+
+                    <div style="
+                        margin: 25px 0;
+                        padding: 22px;
+                        background: #eaf9fa;
+                        border-radius: 12px;
+                        text-align: center;
+                    ">
+
+                        <h3 style="
+                            color: #075763;
+                            margin-top: 0;
+                        ">
+                            Join Your Consultation
+                        </h3>
+
+                        <a
+                            href="${meetLink}"
+                            style="
+                                display: inline-block;
+                                padding: 14px 25px;
+                                background: #075763;
+                                color: white;
+                                text-decoration: none;
+                                border-radius: 8px;
+                                font-weight: 700;
+                            "
+                        >
+                            Join Google Meet
+                        </a>
+
+                        <p style="
+                            font-size: 12px;
+                            margin-top: 15px;
+                        ">
+                            ${meetLink}
+                        </p>
+
+                    </div>
+
+                    <p style="
+                        color: #71868a;
+                        line-height: 1.6;
+                    ">
+                        Please join the consultation at the scheduled
+                        time using the Google Meet link above.
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        const { data: patientData, error: patientError } =
+            await resend.emails.send({
+
+                from:
+                    "CURE HEALTH 24 <info@curehealth24.com>",
+
+                to: [
+                    email
+                ],
+
+                subject:
+                    "Your Cure Health 24 Telemedicine Consultation",
+
+                html:
+                    patientEmailContent
+
+            });
+
+
+        if (patientError) {
+
+            console.error(
+                "PATIENT EMAIL ERROR:",
+                patientError.message
+            );
+
+        }
+
+
+        // =====================================================
+        // SUCCESS PAGE
+        // =====================================================
+
+        res.send(`
+
+            <!DOCTYPE html>
+
+            <html lang="en">
+
+            <head>
+
+                <meta charset="UTF-8">
+
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0"
+                >
+
+                <title>
+                    Telemedicine Confirmed | Cure Health 24
+                </title>
+
+            </head>
+
+            <body>
+
+                <div style="
+                    font-family: Arial, sans-serif;
+                    text-align: center;
+                    padding: 100px 20px;
+                    background: #f7fcfc;
+                    min-height: 100vh;
+                    box-sizing: border-box;
+                ">
+
+                    <div style="
+                        max-width: 650px;
+                        margin: auto;
+                        background: white;
+                        padding: 50px 30px;
+                        border-radius: 20px;
+                        box-shadow:
+                            0 20px 50px
+                            rgba(5, 70, 80, .08);
+                    ">
+
+                        <div style="
+                            width: 60px;
+                            height: 60px;
+                            margin: 0 auto 20px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 50%;
+                            background: #e4f8fa;
+                            color: #075763;
+                            font-size: 30px;
+                        ">
+                            ✓
+                        </div>
+
+                        <h1 style="
+                            color: #075763;
+                            margin-bottom: 15px;
+                        ">
+                            Telemedicine Consultation Confirmed
+                        </h1>
+
+                        <p style="
+                            color: #71868a;
+                            line-height: 1.7;
+                        ">
+                            Thank you, ${firstName}.
+                            Your online consultation has been scheduled.
+                        </p>
+
+                        <p>
+                            <strong>Date:</strong>
+                            ${date}
+                        </p>
+
+                        <p>
+                            <strong>Time:</strong>
+                            ${time}
+                        </p>
+
+                        <a
+                            href="${meetLink}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style="
+                                display: inline-block;
+                                margin-top: 20px;
+                                padding: 14px 25px;
+                                background: #075763;
+                                color: white;
+                                text-decoration: none;
+                                border-radius: 9px;
+                                font-weight: 700;
+                            "
+                        >
+                            Join Google Meet
+                        </a>
+
+                        <br>
+
+                        <a
+                            href="/"
+                            style="
+                                display: inline-block;
+                                margin-top: 15px;
+                                color: #075763;
+                                text-decoration: none;
+                                font-weight: 600;
+                            "
+                        >
+                            Back to Home
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </body>
+
+            </html>
+
+        `);
+
+
+    } catch (error) {
+
+        console.error("================================");
+        console.error("TELEMEDICINE APPOINTMENT ERROR");
+        console.error("Message:", error.message);
+        console.error("================================");
+
+        res.status(500).send(`
+
+            <h2>Telemedicine Appointment Failed</h2>
+
+            <p>
+                We couldn't create your online consultation.
+                Please try again.
+            </p>
+
+            <a href="/telemedicine">
+                Try Again
+            </a>
+
+        `);
+
+    }
+
+});
+
+
+
+
+
+
+
+app.get("/auth/google/test", (req, res) => {
+    res.send("Google OAuth route is working");
+});
+// =========================================================
+// GOOGLE OAUTH - CALLBACK
+// =========================================================
+
+app.get("/auth/google/callback", async (req, res) => {
+
+    console.log("🔥 GOOGLE CALLBACK HIT");
+console.log("Query:", req.query);
+
+    try {
+
+        const {
+            code,
+            state,
+            error
+        } = req.query;
+
+
+        // User denied permission
+        if (error) {
+
+            console.error("Google OAuth Error:", error);
+
+            return res.status(400).send(`
+                <h2>Google Authorization Cancelled</h2>
+                <p>Google Calendar authorization was not completed.</p>
+                <a href="/telemedicine">
+                    Back to Telemedicine
+                </a>
+            `);
+
+        }
+
+
+        // Check authorization code
+        if (!code) {
+
+            return res.status(400).send(`
+                <h2>Authorization Failed</h2>
+                <p>No authorization code was received from Google.</p>
+            `);
+
+        }
+
+
+        // Check state
+        const savedState = req.cookies.google_oauth_state;
+
+        if (!state || !savedState || state !== savedState) {
+
+            console.error("Google OAuth state mismatch.");
+
+            return res.status(403).send(`
+                <h2>Authorization Security Check Failed</h2>
+                <p>Please try connecting Google again.</p>
+                <a href="/auth/google">
+                    Try Again
+                </a>
+            `);
+
+        }
+
+
+        // Exchange authorization code for tokens
+        const { tokens } =
+    await googleOAuth2Client.getToken(code);
+
+console.log("Google OAuth tokens received");
+
+console.log(
+    "Access token received:",
+    !!tokens.access_token
+);
+
+console.log(
+    "Refresh token received:",
+    !!tokens.refresh_token
+);
+
+// Save tokens securely for local development
+saveGoogleTokens(tokens);
+
+googleOAuth2Client.setCredentials(tokens);
+
+
+        console.log("================================");
+        console.log("GOOGLE OAUTH SUCCESS");
+        console.log("Access Token Received:", !!tokens.access_token);
+        console.log("Refresh Token Received:", !!tokens.refresh_token);
+        console.log("================================");
+
+
+        // Remove OAuth state cookie
+        res.clearCookie("google_oauth_state");
+
+
+        res.send(`
+
+            <!DOCTYPE html>
+
+            <html lang="en">
+
+            <head>
+
+                <meta charset="UTF-8">
+
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0"
+                >
+
+                <title>
+                    Google Calendar Connected | Cure Health 24
+                </title>
+
+            </head>
+
+            <body>
+
+                <div style="
+                    font-family: Arial, sans-serif;
+                    text-align: center;
+                    padding: 100px 20px;
+                    background: #f7fcfc;
+                    min-height: 100vh;
+                ">
+
+                    <div style="
+                        max-width: 600px;
+                        margin: auto;
+                        padding: 50px 30px;
+                        background: white;
+                        border-radius: 20px;
+                        box-shadow:
+                            0 20px 50px
+                            rgba(5, 70, 80, .08);
+                    ">
+
+                        <div style="
+                            font-size: 50px;
+                            color: #075763;
+                        ">
+                            ✓
+                        </div>
+
+                        <h1 style="
+                            color: #075763;
+                        ">
+                            Google Calendar Connected
+                        </h1>
+
+                        <p style="
+                            color: #71868a;
+                            line-height: 1.7;
+                        ">
+                            Cure Health 24 has successfully connected
+                            to Google Calendar.
+                        </p>
+
+                        <a
+                            href="/telemedicine"
+                            style="
+                                display: inline-block;
+                                margin-top: 20px;
+                                padding: 13px 24px;
+                                background: #075763;
+                                color: white;
+                                text-decoration: none;
+                                border-radius: 9px;
+                                font-weight: 700;
+                            "
+                        >
+                            Back to Telemedicine
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </body>
+
+            </html>
+
+        `);
+
+
+    } catch (error) {
+
+        console.error("================================");
+        console.error("GOOGLE OAUTH CALLBACK ERROR");
+        console.error("Message:", error.message);
+        console.error("================================");
+
+
+        res.status(500).send(`
+            <h2>Google Authorization Failed</h2>
+            <p>Unable to connect Google Calendar.</p>
+            <a href="/auth/google">
+                Try Again
+            </a>
+        `);
+
+    }
+
+});
+
+// =========================================================
+// GOOGLE CALENDAR CONNECTION TEST
+// =========================================================
+
+app.get("/api/google/calendar/test", async (req, res) => {
+
+    try {
+
+        const calendar = google.calendar({
+            version: "v3",
+            auth: googleOAuth2Client
+        });
+
+        const response = await calendar.calendarList.list();
+
+        const calendars = response.data.items || [];
+
+        console.log("================================");
+        console.log("GOOGLE CALENDAR CONNECTION TEST");
+        console.log("Calendars found:", calendars.length);
+        console.log("================================");
+
+        res.json({
+            success: true,
+            message: "Google Calendar connection is working.",
+            calendars: calendars.map(calendar => ({
+                id: calendar.id,
+                name: calendar.summary,
+                primary: calendar.primary || false
+            }))
+        });
+
+    } catch (error) {
+
+        console.error("================================");
+        console.error("GOOGLE CALENDAR TEST ERROR");
+        console.error("Message:", error.message);
+        console.error("================================");
+
+        res.status(500).json({
+            success: false,
+            message: "Google Calendar connection failed.",
+            error: error.message
+        });
+
+    }
+
+});
 
 
 // ==============================

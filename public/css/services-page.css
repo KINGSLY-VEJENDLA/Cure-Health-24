@@ -1,96 +1,207 @@
+/* =========================================================
+   CURE HEALTH 24
+   SERVICES PAGE
+   ========================================================= */
+
+
+/* =========================================================
+   SERVICES HERO
+   ========================================================= */
+
 .services-hero {
     padding: 120px 20px;
+
     background: #f7f9fc;
+
     text-align: center;
 }
 
+
 .services-hero-content {
-    max-width: 850px;
-    margin: auto;
+    width: min(850px, 92%);
+
+    margin: 0 auto;
 }
 
-.section-tag {
-    
+
+.services-section-tag {
     text-transform: uppercase;
+
     letter-spacing: 1px;
+
     display: inline-block;
 
     margin-bottom: 18px;
+
     padding: 7px 13px;
 
     border-radius: 20px;
 
     background: #d9f3f5;
+
     color: #087485;
 
     font-size: 12px;
+
     font-weight: 700;
 }
 
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
 .services-hero h1 {
+    margin: 0 0 20px;
+
+    color: #064d59;
+
     font-size: 52px;
+
     line-height: 1.15;
-    margin-bottom: 20px;
+
+    font-weight: 700;
+
+    letter-spacing: -1.5px;
 }
+
+
+.services-hero h1 span {
+    color: #0ba2b2;
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
 
 .services-hero p {
     max-width: 700px;
+
     margin: 0 auto 30px;
-    color: #666;
+
+    color: #666666;
+
     line-height: 1.8;
+
+    font-size: 15px;
 }
 
-.primary-btn {
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.services-primary-btn {
     display: inline-block;
+
     padding: 14px 28px;
+
     background: #0b7a75;
-    color: #fff;
+
+    color: #ffffff;
+
     text-decoration: none;
+
     border-radius: 6px;
+
+    font-size: 14px;
+
     font-weight: 600;
-    transition: 0.3s;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
 }
 
-.primary-btn:hover {
+
+.services-primary-btn:hover {
     background: #075b57;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
 }
+
+
+/* =========================================================
+   SERVICES CONTAINER
+   IMPORTANT:
+   Do NOT use ".container"
+   because it can affect the navbar.
+   ========================================================= */
+
+.services-container {
+    width: min(1150px, 92%);
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   SERVICES INTRO
+   ========================================================= */
 
 .services-intro {
     padding: 90px 20px 50px;
+
     text-align: center;
+
+    background: #ffffff;
 }
 
-.container {
-    width: min(1150px, 92%);
-    margin: auto;
+
+.services-intro-content {
+    max-width: 800px;
+
+    margin: 0 auto;
 }
+
 
 .services-intro h2 {
+    margin: 0 0 20px;
+
+    color: #064d59;
+
     font-size: 38px;
-    margin-bottom: 20px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
 }
+
 
 .services-intro p {
     max-width: 750px;
-    margin: auto;
-    color: #666;
+
+    margin: 0 auto;
+
+    color: #666666;
+
     line-height: 1.8;
+
+    font-size: 14px;
 }
 
-/* =========================================
-   SERVICES GRID
-========================================= */
+
+/* =========================================================
+   SERVICES GRID SECTION
+   ========================================================= */
 
 .services-grid-section {
     padding: 50px 20px 100px;
+
+    background: #ffffff;
 }
+
 
 .services-grid {
     width: 100%;
 
     display: grid;
 
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
 
     gap: 28px;
 
@@ -98,14 +209,15 @@
 }
 
 
-/* =========================================
+/* =========================================================
    SERVICE CARD
-========================================= */
+   ========================================================= */
 
 .service-card {
     position: relative;
 
     min-width: 0;
+
     min-height: 360px;
 
     padding: 32px;
@@ -113,7 +225,9 @@
     box-sizing: border-box;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: flex-start;
 
     background: #ffffff;
@@ -131,26 +245,24 @@
 }
 
 
-/* =========================================
-   CARD HOVER
-========================================= */
-
 .service-card:hover {
     transform: translateY(-6px);
 
     border-color: #b9e2e6;
 
     box-shadow:
-        0 18px 45px rgba(6, 77, 89, 0.10);
+        0 18px 45px
+        rgba(6, 77, 89, 0.10);
 }
 
 
-/* =========================================
-   ICON
-========================================= */
+/* =========================================================
+   SERVICE ICON
+   ========================================================= */
 
 .service-icon {
     width: 58px;
+
     height: 58px;
 
     margin-bottom: 24px;
@@ -158,6 +270,7 @@
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     flex-shrink: 0;
@@ -169,12 +282,25 @@
     color: #0ba2b2;
 
     font-size: 23px;
+
+    overflow: hidden;
 }
 
 
-/* =========================================
-   TITLE
-========================================= */
+.service-icon img {
+    width: 38px;
+
+    height: 38px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================================================
+   SERVICE TITLE
+   ========================================================= */
 
 .service-card h3 {
     margin: 0;
@@ -191,9 +317,9 @@
 }
 
 
-/* =========================================
-   DESCRIPTION
-========================================= */
+/* =========================================================
+   SERVICE DESCRIPTION
+   ========================================================= */
 
 .service-card p {
     margin: 16px 0 0;
@@ -208,48 +334,86 @@
 }
 
 
-/* =========================================
-   LEARN MORE
-========================================= */
+/* =========================================================
+   SERVICES CTA
+   ========================================================= */
 
-.service-card a {
-    display: inline-flex;
+.services-cta {
+    padding: 90px 20px;
 
-    align-items: center;
+    background: #0b7a75;
 
-    margin-top: auto;
-    padding-top: 25px;
+    color: #ffffff;
 
-    color: #0ba2b2;
+    text-align: center;
+}
 
-    font-size: 14px;
+
+.services-cta-content {
+    max-width: 800px;
+
+    margin: 0 auto;
+}
+
+
+.services-cta h2 {
+    margin: 0 0 15px;
+
+    color: #ffffff;
+
+    font-size: 38px;
+
+    line-height: 1.2;
 
     font-weight: 700;
-
-    text-decoration: none;
-
-    transition: 0.25s ease;
 }
 
 
-.service-card a:hover {
-    color: #075763;
+.services-cta p {
+    margin: 0 0 30px;
 
-    transform: translateX(4px);
+    color:
+        rgba(255, 255, 255, 0.85);
+
+    font-size: 15px;
 }
 
 
-/* =========================================
+.services-cta .services-section-tag {
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    color: #ffffff;
+}
+
+
+.services-cta-btn {
+    background: #ffffff;
+
+    color: #0b7a75;
+}
+
+
+.services-cta-btn:hover {
+    background: #f4fafa;
+
+    color: #075b57;
+}
+
+
+/* =========================================================
    TABLET
-========================================= */
+   ========================================================= */
 
 @media (max-width: 1000px) {
 
     .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
 
         gap: 22px;
     }
+
 
     .service-card {
         min-height: 340px;
@@ -260,11 +424,59 @@
 }
 
 
-/* =========================================
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .services-hero h1 {
+        font-size: 42px;
+    }
+
+
+    .services-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
    MOBILE
-========================================= */
+   ========================================================= */
 
 @media (max-width: 600px) {
+
+    .services-hero {
+        padding: 80px 20px;
+    }
+
+
+    .services-hero h1 {
+        font-size: 34px;
+
+        letter-spacing: -0.8px;
+    }
+
+
+    .services-intro {
+        padding:
+            70px 20px 40px;
+    }
+
+
+    .services-intro h2 {
+        font-size: 30px;
+    }
+
+
+    .services-grid-section {
+        padding:
+            40px 20px 70px;
+    }
+
 
     .services-grid {
         grid-template-columns: 1fr;
@@ -272,15 +484,18 @@
         gap: 18px;
     }
 
+
     .service-card {
         min-height: auto;
 
         padding: 25px;
     }
 
+
     .service-card h3 {
         font-size: 21px;
     }
+
 
     .service-card p {
         font-size: 13px;
@@ -288,59 +503,37 @@
         line-height: 1.7;
     }
 
-}
-.services-cta {
-    padding: 90px 20px;
-    background: #0b7a75;
-    color: #fff;
-    text-align: center;
-}
 
-.services-cta h2 {
-    font-size: 38px;
-    margin-bottom: 15px;
-}
-
-.services-cta p {
-    margin-bottom: 30px;
-}
-
-.services-cta .primary-btn {
-    background: #fff;
-    color: #0b7a75;
-}
-
-
-/* Responsive */
-
-@media (max-width: 900px) {
-
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .services-cta {
+        padding: 70px 20px;
     }
 
-    .services-hero h1 {
-        font-size: 42px;
-    }
-}
 
-
-@media (max-width: 600px) {
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .services-hero {
-        padding: 80px 20px;
-    }
-
-    .services-hero h1 {
-        font-size: 34px;
-    }
-
-    .services-intro h2,
     .services-cta h2 {
         font-size: 30px;
     }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .services-hero h1 {
+        font-size: 30px;
+    }
+
+
+    .services-container {
+        width: 90%;
+    }
+
+
+    .service-card {
+        padding: 22px;
+    }
+
 }
